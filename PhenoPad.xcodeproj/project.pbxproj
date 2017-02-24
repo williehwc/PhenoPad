@@ -7,21 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		446C4B671E608367002D00E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B661E608367002D00E9 /* AppDelegate.swift */; };
-		446C4B691E608367002D00E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B681E608367002D00E9 /* ViewController.swift */; };
-		446C4B6C1E608367002D00E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 446C4B6A1E608367002D00E9 /* Main.storyboard */; };
 		446C4B6E1E608367002D00E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 446C4B6D1E608367002D00E9 /* Assets.xcassets */; };
-		446C4B711E608367002D00E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 446C4B6F1E608367002D00E9 /* LaunchScreen.storyboard */; };
+		446C4B7A1E608396002D00E9 /* MyUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B791E608396002D00E9 /* MyUIColor.swift */; };
+		446C4B7E1E6083B8002D00E9 /* BaseBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B7C1E6083B8002D00E9 /* BaseBrush.swift */; };
+		446C4B7F1E6083B8002D00E9 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B7D1E6083B8002D00E9 /* Board.swift */; };
+		446C4B871E6083CB002D00E9 /* DashLineBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B811E6083CB002D00E9 /* DashLineBrush.swift */; };
+		446C4B881E6083CB002D00E9 /* EllipseBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B821E6083CB002D00E9 /* EllipseBrush.swift */; };
+		446C4B891E6083CB002D00E9 /* EraserBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B831E6083CB002D00E9 /* EraserBrush.swift */; };
+		446C4B8A1E6083CB002D00E9 /* LineBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B841E6083CB002D00E9 /* LineBrush.swift */; };
+		446C4B8B1E6083CB002D00E9 /* PencilBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B851E6083CB002D00E9 /* PencilBrush.swift */; };
+		446C4B8C1E6083CB002D00E9 /* RectangleBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B861E6083CB002D00E9 /* RectangleBrush.swift */; };
+		446C4B901E6083E8002D00E9 /* PaintingBrushSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B8E1E6083E8002D00E9 /* PaintingBrushSettingsView.swift */; };
+		446C4B911E6083E8002D00E9 /* PaintingBrushSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446C4B8F1E6083E8002D00E9 /* PaintingBrushSettingsView.xib */; };
+		446C4B951E608405002D00E9 /* BackgroundSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B931E608405002D00E9 /* BackgroundSettingsVC.swift */; };
+		446C4B961E608405002D00E9 /* BackgroundSettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446C4B941E608405002D00E9 /* BackgroundSettingsVC.xib */; };
+		446C4B9C1E608439002D00E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B971E608439002D00E9 /* AppDelegate.swift */; };
+		446C4B9D1E608439002D00E9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446C4B981E608439002D00E9 /* LaunchScreen.xib */; };
+		446C4B9E1E608439002D00E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 446C4B991E608439002D00E9 /* Main.storyboard */; };
+		446C4B9F1E608439002D00E9 /* RGBColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B9A1E608439002D00E9 /* RGBColorPicker.swift */; };
+		446C4BA01E608439002D00E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B9B1E608439002D00E9 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		446C4B631E608367002D00E9 /* PhenoPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhenoPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		446C4B661E608367002D00E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		446C4B681E608367002D00E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		446C4B6B1E608367002D00E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		446C4B6D1E608367002D00E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		446C4B701E608367002D00E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		446C4B721E608367002D00E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		446C4B791E608396002D00E9 /* MyUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUIColor.swift; sourceTree = "<group>"; };
+		446C4B7C1E6083B8002D00E9 /* BaseBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBrush.swift; sourceTree = "<group>"; };
+		446C4B7D1E6083B8002D00E9 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		446C4B811E6083CB002D00E9 /* DashLineBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashLineBrush.swift; sourceTree = "<group>"; };
+		446C4B821E6083CB002D00E9 /* EllipseBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipseBrush.swift; sourceTree = "<group>"; };
+		446C4B831E6083CB002D00E9 /* EraserBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EraserBrush.swift; sourceTree = "<group>"; };
+		446C4B841E6083CB002D00E9 /* LineBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineBrush.swift; sourceTree = "<group>"; };
+		446C4B851E6083CB002D00E9 /* PencilBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PencilBrush.swift; sourceTree = "<group>"; };
+		446C4B861E6083CB002D00E9 /* RectangleBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleBrush.swift; sourceTree = "<group>"; };
+		446C4B8E1E6083E8002D00E9 /* PaintingBrushSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingBrushSettingsView.swift; sourceTree = "<group>"; };
+		446C4B8F1E6083E8002D00E9 /* PaintingBrushSettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaintingBrushSettingsView.xib; sourceTree = "<group>"; };
+		446C4B931E608405002D00E9 /* BackgroundSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundSettingsVC.swift; sourceTree = "<group>"; };
+		446C4B941E608405002D00E9 /* BackgroundSettingsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundSettingsVC.xib; sourceTree = "<group>"; };
+		446C4B971E608439002D00E9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		446C4B981E608439002D00E9 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		446C4B991E608439002D00E9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		446C4B9A1E608439002D00E9 /* RGBColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBColorPicker.swift; sourceTree = "<group>"; };
+		446C4B9B1E608439002D00E9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +82,76 @@
 		446C4B651E608367002D00E9 /* PhenoPad */ = {
 			isa = PBXGroup;
 			children = (
-				446C4B661E608367002D00E9 /* AppDelegate.swift */,
-				446C4B681E608367002D00E9 /* ViewController.swift */,
-				446C4B6A1E608367002D00E9 /* Main.storyboard */,
+				446C4B971E608439002D00E9 /* AppDelegate.swift */,
+				446C4B981E608439002D00E9 /* LaunchScreen.xib */,
+				446C4B991E608439002D00E9 /* Main.storyboard */,
+				446C4B9A1E608439002D00E9 /* RGBColorPicker.swift */,
+				446C4B9B1E608439002D00E9 /* ViewController.swift */,
+				446C4B921E6083EF002D00E9 /* BackgroundSettingsView */,
+				446C4B8D1E6083CF002D00E9 /* PaintingBrushSettingsView */,
+				446C4B801E6083BC002D00E9 /* Brushes */,
+				446C4B7B1E6083A8002D00E9 /* Base */,
+				446C4B781E608380002D00E9 /* tools */,
 				446C4B6D1E608367002D00E9 /* Assets.xcassets */,
-				446C4B6F1E608367002D00E9 /* LaunchScreen.storyboard */,
-				446C4B721E608367002D00E9 /* Info.plist */,
+				446C4BA21E608469002D00E9 /* Supporting Files */,
 			);
 			path = PhenoPad;
+			sourceTree = "<group>";
+		};
+		446C4B781E608380002D00E9 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				446C4B791E608396002D00E9 /* MyUIColor.swift */,
+			);
+			name = tools;
+			sourceTree = "<group>";
+		};
+		446C4B7B1E6083A8002D00E9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				446C4B7C1E6083B8002D00E9 /* BaseBrush.swift */,
+				446C4B7D1E6083B8002D00E9 /* Board.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		446C4B801E6083BC002D00E9 /* Brushes */ = {
+			isa = PBXGroup;
+			children = (
+				446C4B811E6083CB002D00E9 /* DashLineBrush.swift */,
+				446C4B821E6083CB002D00E9 /* EllipseBrush.swift */,
+				446C4B831E6083CB002D00E9 /* EraserBrush.swift */,
+				446C4B841E6083CB002D00E9 /* LineBrush.swift */,
+				446C4B851E6083CB002D00E9 /* PencilBrush.swift */,
+				446C4B861E6083CB002D00E9 /* RectangleBrush.swift */,
+			);
+			name = Brushes;
+			sourceTree = "<group>";
+		};
+		446C4B8D1E6083CF002D00E9 /* PaintingBrushSettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				446C4B8E1E6083E8002D00E9 /* PaintingBrushSettingsView.swift */,
+				446C4B8F1E6083E8002D00E9 /* PaintingBrushSettingsView.xib */,
+			);
+			name = PaintingBrushSettingsView;
+			sourceTree = "<group>";
+		};
+		446C4B921E6083EF002D00E9 /* BackgroundSettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				446C4B931E608405002D00E9 /* BackgroundSettingsVC.swift */,
+				446C4B941E608405002D00E9 /* BackgroundSettingsVC.xib */,
+			);
+			name = BackgroundSettingsView;
+			sourceTree = "<group>";
+		};
+		446C4BA21E608469002D00E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				446C4B721E608367002D00E9 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +187,7 @@
 					446C4B621E608367002D00E9 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = B7C3M4F3XY;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -124,9 +215,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				446C4B711E608367002D00E9 /* LaunchScreen.storyboard in Resources */,
+				446C4B9D1E608439002D00E9 /* LaunchScreen.xib in Resources */,
+				446C4B911E6083E8002D00E9 /* PaintingBrushSettingsView.xib in Resources */,
+				446C4B9E1E608439002D00E9 /* Main.storyboard in Resources */,
 				446C4B6E1E608367002D00E9 /* Assets.xcassets in Resources */,
-				446C4B6C1E608367002D00E9 /* Main.storyboard in Resources */,
+				446C4B961E608405002D00E9 /* BackgroundSettingsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,31 +230,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				446C4B691E608367002D00E9 /* ViewController.swift in Sources */,
-				446C4B671E608367002D00E9 /* AppDelegate.swift in Sources */,
+				446C4B9C1E608439002D00E9 /* AppDelegate.swift in Sources */,
+				446C4B7A1E608396002D00E9 /* MyUIColor.swift in Sources */,
+				446C4B8C1E6083CB002D00E9 /* RectangleBrush.swift in Sources */,
+				446C4B901E6083E8002D00E9 /* PaintingBrushSettingsView.swift in Sources */,
+				446C4BA01E608439002D00E9 /* ViewController.swift in Sources */,
+				446C4B7E1E6083B8002D00E9 /* BaseBrush.swift in Sources */,
+				446C4B891E6083CB002D00E9 /* EraserBrush.swift in Sources */,
+				446C4B8B1E6083CB002D00E9 /* PencilBrush.swift in Sources */,
+				446C4B881E6083CB002D00E9 /* EllipseBrush.swift in Sources */,
+				446C4B871E6083CB002D00E9 /* DashLineBrush.swift in Sources */,
+				446C4B9F1E608439002D00E9 /* RGBColorPicker.swift in Sources */,
+				446C4B951E608405002D00E9 /* BackgroundSettingsVC.swift in Sources */,
+				446C4B8A1E6083CB002D00E9 /* LineBrush.swift in Sources */,
+				446C4B7F1E6083B8002D00E9 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		446C4B6A1E608367002D00E9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				446C4B6B1E608367002D00E9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		446C4B6F1E608367002D00E9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				446C4B701E608367002D00E9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		446C4B731E608367002D00E9 /* Debug */ = {
@@ -261,11 +347,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B7C3M4F3XY;
 				INFOPLIST_FILE = PhenoPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccm.PhenoPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -274,6 +362,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B7C3M4F3XY;
 				INFOPLIST_FILE = PhenoPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
