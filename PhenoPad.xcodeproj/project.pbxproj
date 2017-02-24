@@ -82,18 +82,18 @@
 		446C4B651E608367002D00E9 /* PhenoPad */ = {
 			isa = PBXGroup;
 			children = (
+				446C4B921E6083EF002D00E9 /* BackgroundSettingsView */,
+				446C4B7B1E6083A8002D00E9 /* Base */,
+				446C4B801E6083BC002D00E9 /* Brushes */,
+				446C4B8D1E6083CF002D00E9 /* PaintingBrushSettingsView */,
+				446C4BA21E608469002D00E9 /* Supporting Files */,
+				446C4B781E608380002D00E9 /* tools */,
 				446C4B971E608439002D00E9 /* AppDelegate.swift */,
+				446C4B6D1E608367002D00E9 /* Assets.xcassets */,
 				446C4B981E608439002D00E9 /* LaunchScreen.xib */,
 				446C4B991E608439002D00E9 /* Main.storyboard */,
 				446C4B9A1E608439002D00E9 /* RGBColorPicker.swift */,
 				446C4B9B1E608439002D00E9 /* ViewController.swift */,
-				446C4B921E6083EF002D00E9 /* BackgroundSettingsView */,
-				446C4B8D1E6083CF002D00E9 /* PaintingBrushSettingsView */,
-				446C4B801E6083BC002D00E9 /* Brushes */,
-				446C4B7B1E6083A8002D00E9 /* Base */,
-				446C4B781E608380002D00E9 /* tools */,
-				446C4B6D1E608367002D00E9 /* Assets.xcassets */,
-				446C4BA21E608469002D00E9 /* Supporting Files */,
 			);
 			path = PhenoPad;
 			sourceTree = "<group>";
@@ -104,6 +104,7 @@
 				446C4B791E608396002D00E9 /* MyUIColor.swift */,
 			);
 			name = tools;
+			path = tools;
 			sourceTree = "<group>";
 		};
 		446C4B7B1E6083A8002D00E9 /* Base */ = {
@@ -113,6 +114,7 @@
 				446C4B7D1E6083B8002D00E9 /* Board.swift */,
 			);
 			name = Base;
+			path = Base;
 			sourceTree = "<group>";
 		};
 		446C4B801E6083BC002D00E9 /* Brushes */ = {
@@ -126,6 +128,7 @@
 				446C4B861E6083CB002D00E9 /* RectangleBrush.swift */,
 			);
 			name = Brushes;
+			path = Brushes;
 			sourceTree = "<group>";
 		};
 		446C4B8D1E6083CF002D00E9 /* PaintingBrushSettingsView */ = {
@@ -135,6 +138,7 @@
 				446C4B8F1E6083E8002D00E9 /* PaintingBrushSettingsView.xib */,
 			);
 			name = PaintingBrushSettingsView;
+			path = PaintingBrushSettingsView;
 			sourceTree = "<group>";
 		};
 		446C4B921E6083EF002D00E9 /* BackgroundSettingsView */ = {
@@ -144,6 +148,7 @@
 				446C4B941E608405002D00E9 /* BackgroundSettingsVC.xib */,
 			);
 			name = BackgroundSettingsView;
+			path = BackgroundSettingsView;
 			sourceTree = "<group>";
 		};
 		446C4BA21E608469002D00E9 /* Supporting Files */ = {
@@ -152,6 +157,7 @@
 				446C4B721E608367002D00E9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,7 +355,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B7C3M4F3XY;
-				INFOPLIST_FILE = PhenoPad/Info.plist;
+				INFOPLIST_FILE = "PhenoPad/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccm.PhenoPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -364,7 +370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B7C3M4F3XY;
-				INFOPLIST_FILE = PhenoPad/Info.plist;
+				INFOPLIST_FILE = "PhenoPad/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccm.PhenoPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
