@@ -73,6 +73,20 @@ class Board: UIImageView {
             return image
         }
         
+        // Jixuan
+        /**
+        func imageForUnintendedSingleTap() -> UIImage? {
+            index -= 1
+            if self.canUndo == false {
+                return nil
+            } else {
+                setNeedsCache()
+                images[index+1 ... index+1] = []
+                return images[index]
+            }
+        }
+        **/
+        
         // MARK: - Cache
         
         fileprivate static let cahcesLength = 3 // 在内存中保存图片的张数，以 index 为中心点计算：cahcesLength * 2 + 1
@@ -189,41 +203,65 @@ class Board: UIImageView {
     // MARK: - touches methods
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first!.type == .stylus{
         if let brush = self.brush {
             brush.lastPoint = nil
             
             brush.beginPoint = touches.first!.location(in: self)
             brush.endPoint = brush.beginPoint
-			
+            
             self.drawingState = .began
             
             self.drawingImage()
         }
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let
+            touch = touches.first,
+            let coalescedTouches = event?.coalescedTouches(for: touch)
+            else
+        {
+            return
+        }
+        
+        if touch.type == .stylus{
         if let brush = self.brush {
-            brush.endPoint = touches.first!.location(in: self)
-            
-            self.drawingState = .moved
-            
-            self.drawingImage()
+            coalescedTouches.forEach {
+                brush.endPoint = $0.location(in: self)
+                self.drawingState = .moved
+                self.drawingImage()
+            }
+        }
         }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first!.type == .stylus{
         if let brush = self.brush {
-            brush.endPoint = nil
+                brush.endPoint = nil
+                
+                // If a singe tap is cancelled, the coresponding stroke by this single tap should be cleared.
+                /**
+                if touches.first!.tapCount == 2 {
+                    self.image = self.boardUndoManager.imageForUnintendedSingleTap()
+                    self.realImage = self.image
+                }
+                 **/
+            }
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first!.type == .stylus{
         if let brush = self.brush {
             brush.endPoint = touches.first!.location(in: self)
             
             self.drawingState = .ended
             
             self.drawingImage()
+        }
         }
     }
     
@@ -303,12 +341,6 @@ class Board: UIImageView {
         }
         context?.strokePath()
         
-        // vertical line
-        context?.setStrokeColor(UIColor(netHex: self.vertical_line_color).cgColor)
-        context?.move(to: CGPoint(x: self.vertical_line_margin, y: 0))
-        context?.addLine(to: CGPoint(x: self.vertical_line_margin, y: height))
-        context?.strokePath()
-        
         //self.image = UIGraphicsGetImageFromCurrentImageContext()
         self.backgroundColor = UIColor(patternImage: UIGraphicsGetImageFromCurrentImageContext()!)
         UIGraphicsEndImageContext()
@@ -316,10 +348,11 @@ class Board: UIImageView {
     
     // for background lines
     let line_width = CGFloat(3)
-    let header_height = CGFloat(100)
+    let header_height = CGFloat(0)
     let line_height = CGFloat(40)
     let vertical_line_margin = CGFloat(100)
     let line_color = 0xccdfff
     let vertical_line_color = 0xfc3f3f
+    
     
 }

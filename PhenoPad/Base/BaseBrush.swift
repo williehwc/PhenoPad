@@ -19,6 +19,11 @@ class BaseBrush : NSObject, PaintBrush {
     var beginPoint: CGPoint!
     var endPoint: CGPoint!
     var lastPoint: CGPoint?
+    var drawingState: DrawingState!
+    
+    ///// Jixuan
+    let hermitePath = UIBezierPath()
+    var interpolationPoints = [CGPoint]()
     
     var strokeWidth: CGFloat!
     

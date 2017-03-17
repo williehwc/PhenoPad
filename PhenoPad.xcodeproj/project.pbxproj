@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440513431E6CEBE400AE665E /* AppPageTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4405133F1E6CEBE400AE665E /* AppPageTabBarController.swift */; };
+		440513441E6CEBE400AE665E /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440513401E6CEBE400AE665E /* BlueViewController.swift */; };
+		440513451E6CEBE400AE665E /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440513411E6CEBE400AE665E /* GreenViewController.swift */; };
+		440513461E6CEBE400AE665E /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440513421E6CEBE400AE665E /* RedViewController.swift */; };
+		440513491E6CED7700AE665E /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440513471E6CED7700AE665E /* SpeechView.swift */; };
+		4405134A1E6CED7700AE665E /* SpeechView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 440513481E6CED7700AE665E /* SpeechView.xib */; };
+		4467448F1E6D3F3F005FDBAF /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4467448E1E6D3F3F005FDBAF /* MyLabel.swift */; };
+		446744911E7A0B57005FDBAF /* DrawableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446744901E7A0B57005FDBAF /* DrawableView.swift */; };
 		446C4B6E1E608367002D00E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 446C4B6D1E608367002D00E9 /* Assets.xcassets */; };
 		446C4B7A1E608396002D00E9 /* MyUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B791E608396002D00E9 /* MyUIColor.swift */; };
 		446C4B7E1E6083B8002D00E9 /* BaseBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B7C1E6083B8002D00E9 /* BaseBrush.swift */; };
@@ -17,8 +25,6 @@
 		446C4B8A1E6083CB002D00E9 /* LineBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B841E6083CB002D00E9 /* LineBrush.swift */; };
 		446C4B8B1E6083CB002D00E9 /* PencilBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B851E6083CB002D00E9 /* PencilBrush.swift */; };
 		446C4B8C1E6083CB002D00E9 /* RectangleBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B861E6083CB002D00E9 /* RectangleBrush.swift */; };
-		446C4B901E6083E8002D00E9 /* PaintingBrushSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B8E1E6083E8002D00E9 /* PaintingBrushSettingsView.swift */; };
-		446C4B911E6083E8002D00E9 /* PaintingBrushSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446C4B8F1E6083E8002D00E9 /* PaintingBrushSettingsView.xib */; };
 		446C4B951E608405002D00E9 /* BackgroundSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B931E608405002D00E9 /* BackgroundSettingsVC.swift */; };
 		446C4B961E608405002D00E9 /* BackgroundSettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446C4B941E608405002D00E9 /* BackgroundSettingsVC.xib */; };
 		446C4B9C1E608439002D00E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B971E608439002D00E9 /* AppDelegate.swift */; };
@@ -26,9 +32,66 @@
 		446C4B9E1E608439002D00E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 446C4B991E608439002D00E9 /* Main.storyboard */; };
 		446C4B9F1E608439002D00E9 /* RGBColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B9A1E608439002D00E9 /* RGBColorPicker.swift */; };
 		446C4BA01E608439002D00E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4B9B1E608439002D00E9 /* ViewController.swift */; };
+		446C4BBB1E60D9E5002D00E9 /* FMMarkingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4BB71E60D9E5002D00E9 /* FMMarkingMenu.swift */; };
+		446C4BBC1E60D9E5002D00E9 /* FMMarkingMenuContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4BB81E60D9E5002D00E9 /* FMMarkingMenuContentViewController.swift */; };
+		446C4BBD1E60D9E5002D00E9 /* FMMarkingMenuSupportClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C4BB91E60D9E5002D00E9 /* FMMarkingMenuSupportClasses.swift */; };
+		447CC0751E6A541800579696 /* HSVToRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0741E6A541800579696 /* HSVToRGB.swift */; };
+		447CC0B31E6B295F00579696 /* letimg.c in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0811E6B295F00579696 /* letimg.c */; };
+		447CC0B41E6B295F00579696 /* LetterGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0841E6B295F00579696 /* LetterGroupView.m */; };
+		447CC0B51E6B295F00579696 /* LetterShapesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0861E6B295F00579696 /* LetterShapesController.m */; };
+		447CC0B61E6B295F00579696 /* lidata.c in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0871E6B295F00579696 /* lidata.c */; };
+		447CC0B71E6B295F00579696 /* ThumbImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0901E6B295F00579696 /* ThumbImageView.m */; };
+		447CC0B81E6B295F00579696 /* Shortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0931E6B295F00579696 /* Shortcut.m */; };
+		447CC0B91E6B295F00579696 /* Shortcuts.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0951E6B295F00579696 /* Shortcuts.m */; };
+		447CC0BA1E6B295F00579696 /* LanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0981E6B295F00579696 /* LanguageManager.m */; };
+		447CC0BB1E6B295F00579696 /* NSMutableArray+AddUnique.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC09A1E6B295F00579696 /* NSMutableArray+AddUnique.m */; };
+		447CC0BC1E6B295F00579696 /* RecognizerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC09D1E6B295F00579696 /* RecognizerManager.m */; };
+		447CC0BD1E6B295F00579696 /* RectObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC09F1E6B295F00579696 /* RectObject.m */; };
+		447CC0BE1E6B295F00579696 /* SuggestionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0A11E6B295F00579696 /* SuggestionsView.m */; };
+		447CC0BF1E6B295F00579696 /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0A41E6B295F00579696 /* utils.m */; };
+		447CC0C01E6B295F00579696 /* WPTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0A61E6B295F00579696 /* WPTextView.m */; };
+		447CC0C11E6B295F00579696 /* WritePadPersistentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0A81E6B295F00579696 /* WritePadPersistentData.m */; };
+		447CC0C21E6B295F00579696 /* InkCollectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0AB1E6B295F00579696 /* InkCollectorView.m */; };
+		447CC0C31E6B295F00579696 /* AsyncResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0AE1E6B295F00579696 /* AsyncResultView.m */; };
+		447CC0C41E6B295F00579696 /* WritePadInputPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0B01E6B295F00579696 /* WritePadInputPanel.m */; };
+		447CC0C51E6B295F00579696 /* WritePadInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0B21E6B295F00579696 /* WritePadInputView.m */; };
+		447CC0CC1E6B297500579696 /* EditWordItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0C71E6B297500579696 /* EditWordItemViewController.swift */; };
+		447CC0CD1E6B297500579696 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0C81E6B297500579696 /* LanguageViewController.swift */; };
+		447CC0CE1E6B297500579696 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0C91E6B297500579696 /* OptionsViewController.swift */; };
+		447CC0CF1E6B297500579696 /* UserDictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0CA1E6B297500579696 /* UserDictViewController.swift */; };
+		447CC0D01E6B297500579696 /* WordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447CC0CB1E6B297500579696 /* WordListViewController.swift */; };
+		447CC0E11E6B298300579696 /* Brazilian.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0D21E6B298300579696 /* Brazilian.dct */; };
+		447CC0E21E6B298300579696 /* Danish.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0D31E6B298300579696 /* Danish.dct */; };
+		447CC0E31E6B298300579696 /* Dutch.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0D41E6B298300579696 /* Dutch.dct */; };
+		447CC0E41E6B298300579696 /* English.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0D51E6B298300579696 /* English.dct */; };
+		447CC0E51E6B298300579696 /* EnglishUK.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0D61E6B298300579696 /* EnglishUK.dct */; };
+		447CC0E61E6B298300579696 /* Finnish.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0D71E6B298300579696 /* Finnish.dct */; };
+		447CC0E71E6B298300579696 /* French.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0D81E6B298300579696 /* French.dct */; };
+		447CC0E81E6B298300579696 /* German.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0D91E6B298300579696 /* German.dct */; };
+		447CC0E91E6B298300579696 /* Indonesian.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0DA1E6B298300579696 /* Indonesian.dct */; };
+		447CC0EA1E6B298300579696 /* Italian.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0DB1E6B298300579696 /* Italian.dct */; };
+		447CC0EB1E6B298300579696 /* MedicalUS.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0DC1E6B298300579696 /* MedicalUS.dct */; };
+		447CC0EC1E6B298300579696 /* Norwegian.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0DD1E6B298300579696 /* Norwegian.dct */; };
+		447CC0ED1E6B298300579696 /* Portuguese.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0DE1E6B298300579696 /* Portuguese.dct */; };
+		447CC0EE1E6B298300579696 /* Spanish.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0DF1E6B298300579696 /* Spanish.dct */; };
+		447CC0EF1E6B298300579696 /* Swedish.dct in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0E01E6B298300579696 /* Swedish.dct */; };
+		447CC0F41E6B545200579696 /* libWritePadRecoUniversal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 447CC0F31E6B545200579696 /* libWritePadRecoUniversal.a */; };
+		447CC0F71E6BA65600579696 /* usershortcuts.csv in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0F61E6BA65600579696 /* usershortcuts.csv */; };
+		447CC0F91E6BBF4900579696 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447CC0F81E6BBF4900579696 /* Images.xcassets */; };
+		44F467F61E7A1D5F00FFDD6A /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F467F51E7A1D5F00FFDD6A /* UIBezierPathExtension.swift */; };
+		4B285DD2DC21812BC86CE6E7 /* Pods_PhenoPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE70990F0E3EE1A24B7C456E /* Pods_PhenoPad.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F9C7684584C5B386BBD7728 /* Pods-PhenoPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhenoPad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhenoPad/Pods-PhenoPad.debug.xcconfig"; sourceTree = "<group>"; };
+		4405133F1E6CEBE400AE665E /* AppPageTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPageTabBarController.swift; sourceTree = "<group>"; };
+		440513401E6CEBE400AE665E /* BlueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
+		440513411E6CEBE400AE665E /* GreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
+		440513421E6CEBE400AE665E /* RedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
+		440513471E6CED7700AE665E /* SpeechView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
+		440513481E6CED7700AE665E /* SpeechView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpeechView.xib; sourceTree = "<group>"; };
+		4467448E1E6D3F3F005FDBAF /* MyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLabel.swift; sourceTree = "<group>"; };
+		446744901E7A0B57005FDBAF /* DrawableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawableView.swift; sourceTree = "<group>"; };
 		446C4B631E608367002D00E9 /* PhenoPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhenoPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		446C4B6D1E608367002D00E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		446C4B721E608367002D00E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,8 +104,6 @@
 		446C4B841E6083CB002D00E9 /* LineBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineBrush.swift; sourceTree = "<group>"; };
 		446C4B851E6083CB002D00E9 /* PencilBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PencilBrush.swift; sourceTree = "<group>"; };
 		446C4B861E6083CB002D00E9 /* RectangleBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleBrush.swift; sourceTree = "<group>"; };
-		446C4B8E1E6083E8002D00E9 /* PaintingBrushSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingBrushSettingsView.swift; sourceTree = "<group>"; };
-		446C4B8F1E6083E8002D00E9 /* PaintingBrushSettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaintingBrushSettingsView.xib; sourceTree = "<group>"; };
 		446C4B931E608405002D00E9 /* BackgroundSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundSettingsVC.swift; sourceTree = "<group>"; };
 		446C4B941E608405002D00E9 /* BackgroundSettingsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundSettingsVC.xib; sourceTree = "<group>"; };
 		446C4B971E608439002D00E9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +111,90 @@
 		446C4B991E608439002D00E9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		446C4B9A1E608439002D00E9 /* RGBColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBColorPicker.swift; sourceTree = "<group>"; };
 		446C4B9B1E608439002D00E9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		446C4BB71E60D9E5002D00E9 /* FMMarkingMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMarkingMenu.swift; sourceTree = "<group>"; };
+		446C4BB81E60D9E5002D00E9 /* FMMarkingMenuContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMarkingMenuContentViewController.swift; sourceTree = "<group>"; };
+		446C4BB91E60D9E5002D00E9 /* FMMarkingMenuSupportClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMarkingMenuSupportClasses.swift; sourceTree = "<group>"; };
+		447CC0741E6A541800579696 /* HSVToRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSVToRGB.swift; sourceTree = "<group>"; };
+		447CC0781E6B295F00579696 /* gestures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gestures.h; sourceTree = "<group>"; };
+		447CC0791E6B295F00579696 /* InkWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkWrapper.h; sourceTree = "<group>"; };
+		447CC07A1E6B295F00579696 /* langid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = langid.h; sourceTree = "<group>"; };
+		447CC07B1E6B295F00579696 /* recodefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recodefs.h; sourceTree = "<group>"; };
+		447CC07C1E6B295F00579696 /* RecognizerApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognizerApi.h; sourceTree = "<group>"; };
+		447CC07D1E6B295F00579696 /* RecognizerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognizerWrapper.h; sourceTree = "<group>"; };
+		447CC07E1E6B295F00579696 /* recotypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recotypes.h; sourceTree = "<group>"; };
+		447CC0811E6B295F00579696 /* letimg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = letimg.c; sourceTree = "<group>"; };
+		447CC0821E6B295F00579696 /* letimg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = letimg.h; sourceTree = "<group>"; };
+		447CC0831E6B295F00579696 /* LetterGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterGroupView.h; sourceTree = "<group>"; };
+		447CC0841E6B295F00579696 /* LetterGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterGroupView.m; sourceTree = "<group>"; };
+		447CC0851E6B295F00579696 /* LetterShapesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterShapesController.h; sourceTree = "<group>"; };
+		447CC0861E6B295F00579696 /* LetterShapesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterShapesController.m; sourceTree = "<group>"; };
+		447CC0871E6B295F00579696 /* lidata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lidata.c; sourceTree = "<group>"; };
+		447CC0881E6B295F00579696 /* lidatadf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lidatadf.h; sourceTree = "<group>"; };
+		447CC0891E6B295F00579696 /* lidt_eng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lidt_eng.h; sourceTree = "<group>"; };
+		447CC08A1E6B295F00579696 /* lidt_fre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lidt_fre.h; sourceTree = "<group>"; };
+		447CC08B1E6B295F00579696 /* lidt_ger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lidt_ger.h; sourceTree = "<group>"; };
+		447CC08C1E6B295F00579696 /* ligstate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ligstate.h; sourceTree = "<group>"; };
+		447CC08D1E6B295F00579696 /* liintern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = liintern.h; sourceTree = "<group>"; };
+		447CC08E1E6B295F00579696 /* ShapeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeAPI.h; sourceTree = "<group>"; };
+		447CC08F1E6B295F00579696 /* ThumbImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbImageView.h; sourceTree = "<group>"; };
+		447CC0901E6B295F00579696 /* ThumbImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbImageView.m; sourceTree = "<group>"; };
+		447CC0921E6B295F00579696 /* Shortcut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shortcut.h; sourceTree = "<group>"; };
+		447CC0931E6B295F00579696 /* Shortcut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shortcut.m; sourceTree = "<group>"; };
+		447CC0941E6B295F00579696 /* Shortcuts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shortcuts.h; sourceTree = "<group>"; };
+		447CC0951E6B295F00579696 /* Shortcuts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shortcuts.m; sourceTree = "<group>"; };
+		447CC0971E6B295F00579696 /* LanguageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageManager.h; sourceTree = "<group>"; };
+		447CC0981E6B295F00579696 /* LanguageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageManager.m; sourceTree = "<group>"; };
+		447CC0991E6B295F00579696 /* NSMutableArray+AddUnique.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AddUnique.h"; sourceTree = "<group>"; };
+		447CC09A1E6B295F00579696 /* NSMutableArray+AddUnique.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+AddUnique.m"; sourceTree = "<group>"; };
+		447CC09B1E6B295F00579696 /* OptionKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionKeys.h; sourceTree = "<group>"; };
+		447CC09C1E6B295F00579696 /* RecognizerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognizerManager.h; sourceTree = "<group>"; };
+		447CC09D1E6B295F00579696 /* RecognizerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognizerManager.m; sourceTree = "<group>"; };
+		447CC09E1E6B295F00579696 /* RectObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectObject.h; sourceTree = "<group>"; };
+		447CC09F1E6B295F00579696 /* RectObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectObject.m; sourceTree = "<group>"; };
+		447CC0A01E6B295F00579696 /* SuggestionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionsView.h; sourceTree = "<group>"; };
+		447CC0A11E6B295F00579696 /* SuggestionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionsView.m; sourceTree = "<group>"; };
+		447CC0A21E6B295F00579696 /* UIConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConst.h; sourceTree = "<group>"; };
+		447CC0A31E6B295F00579696 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		447CC0A41E6B295F00579696 /* utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
+		447CC0A51E6B295F00579696 /* WPTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTextView.h; sourceTree = "<group>"; };
+		447CC0A61E6B295F00579696 /* WPTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTextView.m; sourceTree = "<group>"; };
+		447CC0A71E6B295F00579696 /* WritePadPersistentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WritePadPersistentData.h; sourceTree = "<group>"; };
+		447CC0A81E6B295F00579696 /* WritePadPersistentData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WritePadPersistentData.m; sourceTree = "<group>"; };
+		447CC0AA1E6B295F00579696 /* InkCollectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkCollectorView.h; sourceTree = "<group>"; };
+		447CC0AB1E6B295F00579696 /* InkCollectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkCollectorView.m; sourceTree = "<group>"; };
+		447CC0AD1E6B295F00579696 /* AsyncResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncResultView.h; sourceTree = "<group>"; };
+		447CC0AE1E6B295F00579696 /* AsyncResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncResultView.m; sourceTree = "<group>"; };
+		447CC0AF1E6B295F00579696 /* WritePadInputPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WritePadInputPanel.h; sourceTree = "<group>"; };
+		447CC0B01E6B295F00579696 /* WritePadInputPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WritePadInputPanel.m; sourceTree = "<group>"; };
+		447CC0B11E6B295F00579696 /* WritePadInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WritePadInputView.h; sourceTree = "<group>"; };
+		447CC0B21E6B295F00579696 /* WritePadInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WritePadInputView.m; sourceTree = "<group>"; };
+		447CC0C71E6B297500579696 /* EditWordItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWordItemViewController.swift; sourceTree = "<group>"; };
+		447CC0C81E6B297500579696 /* LanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		447CC0C91E6B297500579696 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		447CC0CA1E6B297500579696 /* UserDictViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDictViewController.swift; sourceTree = "<group>"; };
+		447CC0CB1E6B297500579696 /* WordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
+		447CC0D21E6B298300579696 /* Brazilian.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brazilian.dct; sourceTree = "<group>"; };
+		447CC0D31E6B298300579696 /* Danish.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = Danish.dct; sourceTree = "<group>"; };
+		447CC0D41E6B298300579696 /* Dutch.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dutch.dct; sourceTree = "<group>"; };
+		447CC0D51E6B298300579696 /* English.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = English.dct; sourceTree = "<group>"; };
+		447CC0D61E6B298300579696 /* EnglishUK.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = EnglishUK.dct; sourceTree = "<group>"; };
+		447CC0D71E6B298300579696 /* Finnish.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = Finnish.dct; sourceTree = "<group>"; };
+		447CC0D81E6B298300579696 /* French.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = French.dct; sourceTree = "<group>"; };
+		447CC0D91E6B298300579696 /* German.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = German.dct; sourceTree = "<group>"; };
+		447CC0DA1E6B298300579696 /* Indonesian.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = Indonesian.dct; sourceTree = "<group>"; };
+		447CC0DB1E6B298300579696 /* Italian.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = Italian.dct; sourceTree = "<group>"; };
+		447CC0DC1E6B298300579696 /* MedicalUS.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = MedicalUS.dct; sourceTree = "<group>"; };
+		447CC0DD1E6B298300579696 /* Norwegian.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = Norwegian.dct; sourceTree = "<group>"; };
+		447CC0DE1E6B298300579696 /* Portuguese.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = Portuguese.dct; sourceTree = "<group>"; };
+		447CC0DF1E6B298300579696 /* Spanish.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = Spanish.dct; sourceTree = "<group>"; };
+		447CC0E01E6B298300579696 /* Swedish.dct */ = {isa = PBXFileReference; lastKnownFileType = file; path = Swedish.dct; sourceTree = "<group>"; };
+		447CC0F01E6B29AD00579696 /* PhenoPad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhenoPad-Bridging-Header.h"; sourceTree = "<group>"; };
+		447CC0F31E6B545200579696 /* libWritePadRecoUniversal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWritePadRecoUniversal.a; path = Library/libWritePadRecoUniversal.a; sourceTree = "<group>"; };
+		447CC0F61E6BA65600579696 /* usershortcuts.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = usershortcuts.csv; sourceTree = "<group>"; };
+		447CC0F81E6BBF4900579696 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		44F467F51E7A1D5F00FFDD6A /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
+		8740AD4A06E685AD49736724 /* Pods-PhenoPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhenoPad.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhenoPad/Pods-PhenoPad.release.xcconfig"; sourceTree = "<group>"; };
+		AE70990F0E3EE1A24B7C456E /* Pods_PhenoPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhenoPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,17 +202,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447CC0F41E6B545200579696 /* libWritePadRecoUniversal.a in Frameworks */,
+				4B285DD2DC21812BC86CE6E7 /* Pods_PhenoPad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13B86FE310FB05973032CC27 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3F9C7684584C5B386BBD7728 /* Pods-PhenoPad.debug.xcconfig */,
+				8740AD4A06E685AD49736724 /* Pods-PhenoPad.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		446C4B5A1E608367002D00E9 = {
 			isa = PBXGroup;
 			children = (
 				446C4B651E608367002D00E9 /* PhenoPad */,
 				446C4B641E608367002D00E9 /* Products */,
+				13B86FE310FB05973032CC27 /* Pods */,
+				DB2A569FF9A71C665BE7D6E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,18 +240,23 @@
 		446C4B651E608367002D00E9 /* PhenoPad */ = {
 			isa = PBXGroup;
 			children = (
+				447CC0F51E6BA64400579696 /* Resources */,
+				447CC0761E6B28EF00579696 /* WritePad */,
 				446C4B921E6083EF002D00E9 /* BackgroundSettingsView */,
 				446C4B7B1E6083A8002D00E9 /* Base */,
 				446C4B801E6083BC002D00E9 /* Brushes */,
-				446C4B8D1E6083CF002D00E9 /* PaintingBrushSettingsView */,
+				446C4BA31E60CF16002D00E9 /* FMMarkingMenu */,
+				446C4B8D1E6083CF002D00E9 /* SpeechView */,
 				446C4BA21E608469002D00E9 /* Supporting Files */,
 				446C4B781E608380002D00E9 /* tools */,
 				446C4B971E608439002D00E9 /* AppDelegate.swift */,
 				446C4B6D1E608367002D00E9 /* Assets.xcassets */,
 				446C4B981E608439002D00E9 /* LaunchScreen.xib */,
 				446C4B991E608439002D00E9 /* Main.storyboard */,
+				447CC0F31E6B545200579696 /* libWritePadRecoUniversal.a */,
 				446C4B9A1E608439002D00E9 /* RGBColorPicker.swift */,
 				446C4B9B1E608439002D00E9 /* ViewController.swift */,
+				447CC0F01E6B29AD00579696 /* PhenoPad-Bridging-Header.h */,
 			);
 			path = PhenoPad;
 			sourceTree = "<group>";
@@ -102,8 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				446C4B791E608396002D00E9 /* MyUIColor.swift */,
+				447CC0741E6A541800579696 /* HSVToRGB.swift */,
 			);
-			name = tools;
 			path = tools;
 			sourceTree = "<group>";
 		};
@@ -112,14 +275,15 @@
 			children = (
 				446C4B7C1E6083B8002D00E9 /* BaseBrush.swift */,
 				446C4B7D1E6083B8002D00E9 /* Board.swift */,
+				446744901E7A0B57005FDBAF /* DrawableView.swift */,
 			);
-			name = Base;
 			path = Base;
 			sourceTree = "<group>";
 		};
 		446C4B801E6083BC002D00E9 /* Brushes */ = {
 			isa = PBXGroup;
 			children = (
+				44F467F51E7A1D5F00FFDD6A /* UIBezierPathExtension.swift */,
 				446C4B811E6083CB002D00E9 /* DashLineBrush.swift */,
 				446C4B821E6083CB002D00E9 /* EllipseBrush.swift */,
 				446C4B831E6083CB002D00E9 /* EraserBrush.swift */,
@@ -127,17 +291,21 @@
 				446C4B851E6083CB002D00E9 /* PencilBrush.swift */,
 				446C4B861E6083CB002D00E9 /* RectangleBrush.swift */,
 			);
-			name = Brushes;
 			path = Brushes;
 			sourceTree = "<group>";
 		};
-		446C4B8D1E6083CF002D00E9 /* PaintingBrushSettingsView */ = {
+		446C4B8D1E6083CF002D00E9 /* SpeechView */ = {
 			isa = PBXGroup;
 			children = (
-				446C4B8E1E6083E8002D00E9 /* PaintingBrushSettingsView.swift */,
-				446C4B8F1E6083E8002D00E9 /* PaintingBrushSettingsView.xib */,
+				440513471E6CED7700AE665E /* SpeechView.swift */,
+				440513481E6CED7700AE665E /* SpeechView.xib */,
+				4405133F1E6CEBE400AE665E /* AppPageTabBarController.swift */,
+				440513401E6CEBE400AE665E /* BlueViewController.swift */,
+				440513411E6CEBE400AE665E /* GreenViewController.swift */,
+				440513421E6CEBE400AE665E /* RedViewController.swift */,
+				4467448E1E6D3F3F005FDBAF /* MyLabel.swift */,
 			);
-			name = PaintingBrushSettingsView;
+			name = SpeechView;
 			path = PaintingBrushSettingsView;
 			sourceTree = "<group>";
 		};
@@ -147,17 +315,194 @@
 				446C4B931E608405002D00E9 /* BackgroundSettingsVC.swift */,
 				446C4B941E608405002D00E9 /* BackgroundSettingsVC.xib */,
 			);
-			name = BackgroundSettingsView;
 			path = BackgroundSettingsView;
 			sourceTree = "<group>";
 		};
 		446C4BA21E608469002D00E9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				447CC0F81E6BBF4900579696 /* Images.xcassets */,
 				446C4B721E608367002D00E9 /* Info.plist */,
 			);
-			name = "Supporting Files";
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		446C4BA31E60CF16002D00E9 /* FMMarkingMenu */ = {
+			isa = PBXGroup;
+			children = (
+				446C4BB71E60D9E5002D00E9 /* FMMarkingMenu.swift */,
+				446C4BB81E60D9E5002D00E9 /* FMMarkingMenuContentViewController.swift */,
+				446C4BB91E60D9E5002D00E9 /* FMMarkingMenuSupportClasses.swift */,
+			);
+			path = FMMarkingMenu;
+			sourceTree = "<group>";
+		};
+		447CC0761E6B28EF00579696 /* WritePad */ = {
+			isa = PBXGroup;
+			children = (
+				447CC0D11E6B298300579696 /* Dictionaries */,
+				447CC0C61E6B297500579696 /* Options */,
+				447CC0771E6B295F00579696 /* include */,
+				447CC07F1E6B295F00579696 /* Shared */,
+			);
+			name = WritePad;
+			sourceTree = "<group>";
+		};
+		447CC0771E6B295F00579696 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				447CC0781E6B295F00579696 /* gestures.h */,
+				447CC0791E6B295F00579696 /* InkWrapper.h */,
+				447CC07A1E6B295F00579696 /* langid.h */,
+				447CC07B1E6B295F00579696 /* recodefs.h */,
+				447CC07C1E6B295F00579696 /* RecognizerApi.h */,
+				447CC07D1E6B295F00579696 /* RecognizerWrapper.h */,
+				447CC07E1E6B295F00579696 /* recotypes.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		447CC07F1E6B295F00579696 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				447CC0801E6B295F00579696 /* ShapeSelector */,
+				447CC0911E6B295F00579696 /* Shortcuts */,
+				447CC0961E6B295F00579696 /* Utilities */,
+				447CC0A91E6B295F00579696 /* WriteAnywhere */,
+				447CC0AC1E6B295F00579696 /* WritePanel */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		447CC0801E6B295F00579696 /* ShapeSelector */ = {
+			isa = PBXGroup;
+			children = (
+				447CC0811E6B295F00579696 /* letimg.c */,
+				447CC0821E6B295F00579696 /* letimg.h */,
+				447CC0831E6B295F00579696 /* LetterGroupView.h */,
+				447CC0841E6B295F00579696 /* LetterGroupView.m */,
+				447CC0851E6B295F00579696 /* LetterShapesController.h */,
+				447CC0861E6B295F00579696 /* LetterShapesController.m */,
+				447CC0871E6B295F00579696 /* lidata.c */,
+				447CC0881E6B295F00579696 /* lidatadf.h */,
+				447CC0891E6B295F00579696 /* lidt_eng.h */,
+				447CC08A1E6B295F00579696 /* lidt_fre.h */,
+				447CC08B1E6B295F00579696 /* lidt_ger.h */,
+				447CC08C1E6B295F00579696 /* ligstate.h */,
+				447CC08D1E6B295F00579696 /* liintern.h */,
+				447CC08E1E6B295F00579696 /* ShapeAPI.h */,
+				447CC08F1E6B295F00579696 /* ThumbImageView.h */,
+				447CC0901E6B295F00579696 /* ThumbImageView.m */,
+			);
+			path = ShapeSelector;
+			sourceTree = "<group>";
+		};
+		447CC0911E6B295F00579696 /* Shortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				447CC0921E6B295F00579696 /* Shortcut.h */,
+				447CC0931E6B295F00579696 /* Shortcut.m */,
+				447CC0941E6B295F00579696 /* Shortcuts.h */,
+				447CC0951E6B295F00579696 /* Shortcuts.m */,
+			);
+			path = Shortcuts;
+			sourceTree = "<group>";
+		};
+		447CC0961E6B295F00579696 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				447CC0971E6B295F00579696 /* LanguageManager.h */,
+				447CC0981E6B295F00579696 /* LanguageManager.m */,
+				447CC0991E6B295F00579696 /* NSMutableArray+AddUnique.h */,
+				447CC09A1E6B295F00579696 /* NSMutableArray+AddUnique.m */,
+				447CC09B1E6B295F00579696 /* OptionKeys.h */,
+				447CC09C1E6B295F00579696 /* RecognizerManager.h */,
+				447CC09D1E6B295F00579696 /* RecognizerManager.m */,
+				447CC09E1E6B295F00579696 /* RectObject.h */,
+				447CC09F1E6B295F00579696 /* RectObject.m */,
+				447CC0A01E6B295F00579696 /* SuggestionsView.h */,
+				447CC0A11E6B295F00579696 /* SuggestionsView.m */,
+				447CC0A21E6B295F00579696 /* UIConst.h */,
+				447CC0A31E6B295F00579696 /* utils.h */,
+				447CC0A41E6B295F00579696 /* utils.m */,
+				447CC0A51E6B295F00579696 /* WPTextView.h */,
+				447CC0A61E6B295F00579696 /* WPTextView.m */,
+				447CC0A71E6B295F00579696 /* WritePadPersistentData.h */,
+				447CC0A81E6B295F00579696 /* WritePadPersistentData.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		447CC0A91E6B295F00579696 /* WriteAnywhere */ = {
+			isa = PBXGroup;
+			children = (
+				447CC0AA1E6B295F00579696 /* InkCollectorView.h */,
+				447CC0AB1E6B295F00579696 /* InkCollectorView.m */,
+			);
+			path = WriteAnywhere;
+			sourceTree = "<group>";
+		};
+		447CC0AC1E6B295F00579696 /* WritePanel */ = {
+			isa = PBXGroup;
+			children = (
+				447CC0AD1E6B295F00579696 /* AsyncResultView.h */,
+				447CC0AE1E6B295F00579696 /* AsyncResultView.m */,
+				447CC0AF1E6B295F00579696 /* WritePadInputPanel.h */,
+				447CC0B01E6B295F00579696 /* WritePadInputPanel.m */,
+				447CC0B11E6B295F00579696 /* WritePadInputView.h */,
+				447CC0B21E6B295F00579696 /* WritePadInputView.m */,
+			);
+			path = WritePanel;
+			sourceTree = "<group>";
+		};
+		447CC0C61E6B297500579696 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				447CC0C71E6B297500579696 /* EditWordItemViewController.swift */,
+				447CC0C81E6B297500579696 /* LanguageViewController.swift */,
+				447CC0C91E6B297500579696 /* OptionsViewController.swift */,
+				447CC0CA1E6B297500579696 /* UserDictViewController.swift */,
+				447CC0CB1E6B297500579696 /* WordListViewController.swift */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
+		447CC0D11E6B298300579696 /* Dictionaries */ = {
+			isa = PBXGroup;
+			children = (
+				447CC0D21E6B298300579696 /* Brazilian.dct */,
+				447CC0D31E6B298300579696 /* Danish.dct */,
+				447CC0D41E6B298300579696 /* Dutch.dct */,
+				447CC0D51E6B298300579696 /* English.dct */,
+				447CC0D61E6B298300579696 /* EnglishUK.dct */,
+				447CC0D71E6B298300579696 /* Finnish.dct */,
+				447CC0D81E6B298300579696 /* French.dct */,
+				447CC0D91E6B298300579696 /* German.dct */,
+				447CC0DA1E6B298300579696 /* Indonesian.dct */,
+				447CC0DB1E6B298300579696 /* Italian.dct */,
+				447CC0DC1E6B298300579696 /* MedicalUS.dct */,
+				447CC0DD1E6B298300579696 /* Norwegian.dct */,
+				447CC0DE1E6B298300579696 /* Portuguese.dct */,
+				447CC0DF1E6B298300579696 /* Spanish.dct */,
+				447CC0E01E6B298300579696 /* Swedish.dct */,
+			);
+			path = Dictionaries;
+			sourceTree = "<group>";
+		};
+		447CC0F51E6BA64400579696 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				447CC0F61E6BA65600579696 /* usershortcuts.csv */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DB2A569FF9A71C665BE7D6E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE70990F0E3EE1A24B7C456E /* Pods_PhenoPad.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,9 +512,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 446C4B751E608367002D00E9 /* Build configuration list for PBXNativeTarget "PhenoPad" */;
 			buildPhases = (
+				DF5F98F5E446F6A0389D3D7A /* [CP] Check Pods Manifest.lock */,
 				446C4B5F1E608367002D00E9 /* Sources */,
 				446C4B601E608367002D00E9 /* Frameworks */,
 				446C4B611E608367002D00E9 /* Resources */,
+				0760409736551CF6CEF8C91A /* [CP] Embed Pods Frameworks */,
+				B34004F27A05FF8869F525B9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -221,34 +569,134 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447CC0E11E6B298300579696 /* Brazilian.dct in Resources */,
+				447CC0EA1E6B298300579696 /* Italian.dct in Resources */,
+				447CC0E71E6B298300579696 /* French.dct in Resources */,
+				447CC0E81E6B298300579696 /* German.dct in Resources */,
 				446C4B9D1E608439002D00E9 /* LaunchScreen.xib in Resources */,
-				446C4B911E6083E8002D00E9 /* PaintingBrushSettingsView.xib in Resources */,
+				447CC0E51E6B298300579696 /* EnglishUK.dct in Resources */,
+				447CC0E31E6B298300579696 /* Dutch.dct in Resources */,
+				447CC0E41E6B298300579696 /* English.dct in Resources */,
+				4405134A1E6CED7700AE665E /* SpeechView.xib in Resources */,
+				447CC0E21E6B298300579696 /* Danish.dct in Resources */,
+				447CC0EC1E6B298300579696 /* Norwegian.dct in Resources */,
+				447CC0ED1E6B298300579696 /* Portuguese.dct in Resources */,
+				447CC0EF1E6B298300579696 /* Swedish.dct in Resources */,
+				447CC0E61E6B298300579696 /* Finnish.dct in Resources */,
 				446C4B9E1E608439002D00E9 /* Main.storyboard in Resources */,
+				447CC0F91E6BBF4900579696 /* Images.xcassets in Resources */,
+				447CC0EE1E6B298300579696 /* Spanish.dct in Resources */,
 				446C4B6E1E608367002D00E9 /* Assets.xcassets in Resources */,
+				447CC0F71E6BA65600579696 /* usershortcuts.csv in Resources */,
+				447CC0EB1E6B298300579696 /* MedicalUS.dct in Resources */,
 				446C4B961E608405002D00E9 /* BackgroundSettingsVC.xib in Resources */,
+				447CC0E91E6B298300579696 /* Indonesian.dct in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0760409736551CF6CEF8C91A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhenoPad/Pods-PhenoPad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B34004F27A05FF8869F525B9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhenoPad/Pods-PhenoPad-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF5F98F5E446F6A0389D3D7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		446C4B5F1E608367002D00E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447CC0BE1E6B295F00579696 /* SuggestionsView.m in Sources */,
 				446C4B9C1E608439002D00E9 /* AppDelegate.swift in Sources */,
+				447CC0BC1E6B295F00579696 /* RecognizerManager.m in Sources */,
+				447CC0C21E6B295F00579696 /* InkCollectorView.m in Sources */,
+				440513461E6CEBE400AE665E /* RedViewController.swift in Sources */,
+				4467448F1E6D3F3F005FDBAF /* MyLabel.swift in Sources */,
+				446C4BBB1E60D9E5002D00E9 /* FMMarkingMenu.swift in Sources */,
+				447CC0CF1E6B297500579696 /* UserDictViewController.swift in Sources */,
 				446C4B7A1E608396002D00E9 /* MyUIColor.swift in Sources */,
+				440513491E6CED7700AE665E /* SpeechView.swift in Sources */,
 				446C4B8C1E6083CB002D00E9 /* RectangleBrush.swift in Sources */,
-				446C4B901E6083E8002D00E9 /* PaintingBrushSettingsView.swift in Sources */,
+				440513451E6CEBE400AE665E /* GreenViewController.swift in Sources */,
 				446C4BA01E608439002D00E9 /* ViewController.swift in Sources */,
+				440513441E6CEBE400AE665E /* BlueViewController.swift in Sources */,
+				440513431E6CEBE400AE665E /* AppPageTabBarController.swift in Sources */,
+				447CC0CE1E6B297500579696 /* OptionsViewController.swift in Sources */,
 				446C4B7E1E6083B8002D00E9 /* BaseBrush.swift in Sources */,
 				446C4B891E6083CB002D00E9 /* EraserBrush.swift in Sources */,
+				447CC0751E6A541800579696 /* HSVToRGB.swift in Sources */,
+				447CC0BA1E6B295F00579696 /* LanguageManager.m in Sources */,
+				447CC0B81E6B295F00579696 /* Shortcut.m in Sources */,
 				446C4B8B1E6083CB002D00E9 /* PencilBrush.swift in Sources */,
+				447CC0C01E6B295F00579696 /* WPTextView.m in Sources */,
+				447CC0C11E6B295F00579696 /* WritePadPersistentData.m in Sources */,
 				446C4B881E6083CB002D00E9 /* EllipseBrush.swift in Sources */,
+				447CC0B91E6B295F00579696 /* Shortcuts.m in Sources */,
+				447CC0BD1E6B295F00579696 /* RectObject.m in Sources */,
+				447CC0CC1E6B297500579696 /* EditWordItemViewController.swift in Sources */,
+				447CC0BB1E6B295F00579696 /* NSMutableArray+AddUnique.m in Sources */,
 				446C4B871E6083CB002D00E9 /* DashLineBrush.swift in Sources */,
+				447CC0CD1E6B297500579696 /* LanguageViewController.swift in Sources */,
+				447CC0B41E6B295F00579696 /* LetterGroupView.m in Sources */,
 				446C4B9F1E608439002D00E9 /* RGBColorPicker.swift in Sources */,
+				44F467F61E7A1D5F00FFDD6A /* UIBezierPathExtension.swift in Sources */,
+				447CC0B71E6B295F00579696 /* ThumbImageView.m in Sources */,
+				446C4BBD1E60D9E5002D00E9 /* FMMarkingMenuSupportClasses.swift in Sources */,
+				447CC0C51E6B295F00579696 /* WritePadInputView.m in Sources */,
 				446C4B951E608405002D00E9 /* BackgroundSettingsVC.swift in Sources */,
+				447CC0C41E6B295F00579696 /* WritePadInputPanel.m in Sources */,
+				447CC0C31E6B295F00579696 /* AsyncResultView.m in Sources */,
 				446C4B8A1E6083CB002D00E9 /* LineBrush.swift in Sources */,
+				447CC0B51E6B295F00579696 /* LetterShapesController.m in Sources */,
+				446C4BBC1E60D9E5002D00E9 /* FMMarkingMenuContentViewController.swift in Sources */,
+				446744911E7A0B57005FDBAF /* DrawableView.swift in Sources */,
+				447CC0B31E6B295F00579696 /* letimg.c in Sources */,
+				447CC0D01E6B297500579696 /* WordListViewController.swift in Sources */,
+				447CC0B61E6B295F00579696 /* lidata.c in Sources */,
+				447CC0BF1E6B295F00579696 /* utils.m in Sources */,
 				446C4B7F1E6083B8002D00E9 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,30 +799,58 @@
 		};
 		446C4B761E608367002D00E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F9C7684584C5B386BBD7728 /* Pods-PhenoPad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B7C3M4F3XY;
 				INFOPLIST_FILE = "PhenoPad/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/PhenoPad/Library",
+					"$(PROJECT_DIR)/PhenoPad/Library",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccm.PhenoPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhenoPad/PhenoPad-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
 		446C4B771E608367002D00E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8740AD4A06E685AD49736724 /* Pods-PhenoPad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B7C3M4F3XY;
 				INFOPLIST_FILE = "PhenoPad/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/PhenoPad/Library",
+					"$(PROJECT_DIR)/PhenoPad/Library",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccm.PhenoPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhenoPad/PhenoPad-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -397,6 +873,7 @@
 				446C4B771E608367002D00E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
