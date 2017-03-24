@@ -6,12 +6,13 @@
 //////////////////////////////////////
 import UIKit
 
-class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegate { //,  {
+//class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegate { //,  {
+public class ViewController:  UIViewController, UITextViewDelegate, CariocaMenuDelegate{
    
     //////////  DrawingBoard //////////
     var brushes = [PencilBrush(), LineBrush(), DashLineBrush(), RectangleBrush(), EllipseBrush(), EraserBrush()]
     var nameToBrushes: [String: BaseBrush] = ["Pencil": PencilBrush(), "Line": LineBrush(), "Dotted": DashLineBrush(), "Eraser": EraserBrush()]
-    @IBOutlet weak var CCBoard: Board!
+    //@IBOutlet weak var CCBoard: Board!
     @IBOutlet weak var HPIWritingPad: WPTextView!
     @IBOutlet weak var subStackView: UIStackView!
     @IBOutlet weak var bottomToolbar: UIToolbar!
@@ -39,21 +40,28 @@ class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegat
     var strokeWidthSlider = FMMarkingMenuItem(label: "Stroke width", valueSliderValue: 0.05, valueSliderType: 2)
     let strokeColorSlider = FMMarkingMenuItem(label: "Stoke Color", valueSliderValue: 0.0, valueSliderType: 1)
 
-    override func viewDidLoad() {
+    // cool navigation menu
+    var nmenu:CariocaMenu?
+    // cool tools menu
+    var tmenu:CariocaMenu?
+    var curContentController:UIViewController!
+    
+    override public func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib
         /// drawing board
+        /**
         self.CCBoard.brush = nameToBrushes["Pencil"]
         self.CCBoard.drawingStateChangedBlock = {(state: DrawingState) -> () in
             if state != .moved {
             }
         }
-        
+        **/
         /// toolbar and view
         self.setupSpeechView()
         
         /// marking menu
-        self.createMarkingMenu()
+        // self.createMarkingMenu()
         
         /// wp text view
         // WPTextView
@@ -95,28 +103,32 @@ class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegat
         self.view.addConstraint( rightS )
  **/
         
-        self.keyboardHeight = NSLayoutConstraint( item: self.view,
-                                                  attribute: NSLayoutAttribute.bottom,
-                                                  relatedBy: NSLayoutRelation.equal, toItem: self.view,
-                                                  attribute: NSLayoutAttribute.bottom,
-                                                  multiplier: 1.0, constant: 0.0 )
-        self.view.addConstraint( self.keyboardHeight )
-        
-        let notifications = NotificationCenter.default
-        notifications.addObserver( self, selector:#selector(ViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        notifications.addObserver( self, selector:#selector(ViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        notifications.addObserver( self, selector:#selector(ViewController.keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        notifications.addObserver( self, selector:#selector(ViewController.reloadOptions(_:)), name: NSNotification.Name(rawValue: EDITCTL_RELOAD_OPTIONS), object: nil)
+//        self.keyboardHeight = NSLayoutConstraint( item: self.view,
+//                                                  attribute: NSLayoutAttribute.bottom,
+//                                                  relatedBy: NSLayoutRelation.equal, toItem: self.view,
+//                                                  attribute: NSLayoutAttribute.bottom,
+//                                                  multiplier: 1.0, constant: 0.0 )
+//        self.view.addConstraint( self.keyboardHeight )
+//        
+//        let notifications = NotificationCenter.default
+//        notifications.addObserver( self, selector:#selector(ViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        notifications.addObserver( self, selector:#selector(ViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//        notifications.addObserver( self, selector:#selector(ViewController.keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+//        notifications.addObserver( self, selector:#selector(ViewController.reloadOptions(_:)), name: NSNotification.Name(rawValue: EDITCTL_RELOAD_OPTIONS), object: nil)
         
         UserDefaults.standard.set(Int(WPLanguageEnglishUS.rawValue), forKey: kGeneralOptionsCurrentLanguage)
         
        // self.HPIWritingPad.text = "123"
         self.HPIWritingPad.setInputMethod(InputSystem_WriteAnywhere)
+        
+        let item : UITextInputAssistantItem = self.HPIWritingPad.inputAssistantItem
+        item.leadingBarButtonGroups = []
+        item.trailingBarButtonGroups = []
 
         /// tool bar Marking Menu
-        view.addSubview(toolbarMarkingGroup)
-        toolbarMarkingGroup.axis = UILayoutConstraintAxis.horizontal
-        toolbarMarkingGroup.distribution = UIStackViewDistribution.fillEqually
+        // view.addSubview(toolbarMarkingGroup)
+        // toolbarMarkingGroup.axis = UILayoutConstraintAxis.horizontal
+        // toolbarMarkingGroup.distribution = UIStackViewDistribution.fillEqually
 
         
         /***
@@ -193,18 +205,33 @@ class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegat
  ***/
     }
     
-    override func viewDidLayoutSubviews() {
-        self.CCBoard.drawingBackgroundLines()
+    override public func viewDidAppear(_ animated: Bool) {
+        nmenu?.addInView(self.view)
+        nmenu?.isDraggableVertically = true
+        //        menu?.showIndicator(.right, position: .Bottom, offset: -50)
+        nmenu?.showIndicator(.left, position: .center, offset: 30)
+        //        menu?.showIndicator(.right, position: .Top, offset: 50)
+        //        menu?.showIndicator(.left, position: .Top, offset: 50)
+        //        menu?.showIndicator(.left, position: .Center, offset: 50)
+        
+        //nmenu?.addGestureHelperViews([.left,.right], width:30)
+        nmenu?.addGestureHelperViews([.left, .right], width:30)
+
+    }
+
+    override public func viewDidLayoutSubviews() {
+        // self.CCBoard.drawingBackgroundLines()
         toolbarMarkingGroup.frame = CGRect(x: 0, y: view.frame.height - 75, width: view.frame.width, height: 75)
     }
 
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     ///////////////////////////////////////////////
     // Marking menu
+    /********
     func createMarkingMenu(){
 //        let toolTopLevel = FMMarkingMenuItem(label: MenuCategories.DrawingTools.rawValue, subItems:[
 //            FMMarkingMenuItem(label: MenuItems.Pencil.rawValue, category: MenuCategories.DrawingTools.rawValue, isSelected: true),
@@ -235,6 +262,7 @@ class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegat
         toolbarWidget?.markingMenuDelegate = self
         toolbarMarkingGroup.addArrangedSubview(toolbarWidget!)
     }
+ ****/
     enum MenuCategories: String
     {
         case DrawingTools = "Drawing tools"
@@ -251,7 +279,7 @@ class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegat
         case Camera
         case Video
     }
-    
+    /****
     func FMMarkingMenuItemSelected(_ markingMenu: FMMarkingMenu, markingMenuItem: FMMarkingMenuItem)
     {
         guard let category = MenuCategories(rawValue: markingMenuItem.category!),
@@ -315,7 +343,7 @@ class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegat
             }
         }
         
-    }
+    }***/
     // Marking Menu
     /////////////////////////////////////////
     
@@ -373,7 +401,7 @@ class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegat
     // WritingPad
     /////////////////////////////////////////
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if HPIWritingPad.isFirstResponder && touches.first?.view != HPIWritingPad {
             HPIWritingPad.resignFirstResponder()
         }
@@ -403,11 +431,11 @@ class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegat
     }
     
     func setupSpeechView(){
-        speechView = UINib(nibName: "SpeechView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! SpeechView
-        self.view.addSubview(speechView!)
+        //speechView = UINib(nibName: "SpeechView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! SpeechView
+        //self.view.addSubview(speechView!)
         
         // self.addConstraintsToToolbarForSettingsView(speechView)
-        speechView?.isHidden = true
+        //speechView?.isHidden = true
     }
     
     func addConstraintsToToolbarForSettingsView(_ view: UIView) {
@@ -423,6 +451,121 @@ class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegat
                                                                    metrics: ["height" : view.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height],
                                                                    views: ["settingsView" : view]))
     }
+    
+    
+    // MARK: - Various demo controllers
+    
+    func showDemoControllerForIndex(_ index:Int){
+        
+        if curContentController != nil {
+            curContentController.view.removeFromSuperview()
+            curContentController.removeFromParentViewController()
+            curContentController = nil
+        }
+        
+        switch index {
+            
+        case 1:
+            if let obj = self.storyboard?.instantiateViewController(withIdentifier: "objectiveCtrl") {
+                self.addChildViewController(obj)
+                self.view.addSubview(obj.view)
+                curContentController = obj as UIViewController
+            }
+            break
+        case 2:
+            if let assess = self.storyboard?.instantiateViewController(withIdentifier: "assessmentCtrl"){
+                self.addChildViewController(assess)
+                self.view.addSubview(assess.view)
+                curContentController = assess as UIViewController
+            }
+            break
+        default:
+            if let sub = self.storyboard?.instantiateViewController(withIdentifier: "planCtrl") {
+                self.addChildViewController(sub)
+                self.view.addSubview(sub.view)
+                curContentController = sub as UIViewController
+            }
+            break
+        }
+        
+        curContentController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        //Add constraints for autolayout
+        self.view.addConstraints([
+            getEqualConstraint(curContentController.view, toItem: self.view, attribute: .trailing),
+            getEqualConstraint(curContentController.view, toItem: self.view, attribute: .leading),
+            getEqualConstraint(curContentController.view, toItem: self.view, attribute: .bottom),
+            getEqualConstraint(curContentController.view, toItem: self.view, attribute: .top)
+            ])
+        
+        self.view.setNeedsLayout()
+        
+        nmenu?.moveToTop()
+    }
+    
+    
+    fileprivate func getEqualConstraint(_ item: AnyObject, toItem: AnyObject, attribute: NSLayoutAttribute) -> NSLayoutConstraint{
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .equal, toItem: toItem, attribute: attribute, multiplier: 1, constant: 0)
+    }
+    
+    // MARK: - CariocaMenu Delegate
+    
+    ///`Optional` Called when a menu item was selected
+    ///- parameters:
+    ///  - menu: The menu object
+    ///  - indexPath: The selected indexPath
+    public func cariocaMenuDidSelect(_ menu:CariocaMenu, indexPath:IndexPath) {
+        
+        showDemoControllerForIndex(indexPath.row)
+    }
+    
+    ///`Optional` Called when the menu is about to open
+    ///- parameters:
+    ///  - menu: The opening menu object
+    public func cariocaMenuWillOpen(_ menu:CariocaMenu) {
+        //if(logging){
+        //    print("carioca MenuWillOpen \(menu)")
+        //}
+    }
+    
+    ///`Optional` Called when the menu just opened
+    ///- parameters:
+    ///  - menu: The opening menu object
+    public func cariocaMenuDidOpen(_ menu:CariocaMenu){
+//        if(logging){
+//            switch menu.openingEdge{
+//            case .left:
+//                print("carioca MenuDidOpen \(menu) left")
+//                break;
+//            default:
+//                print("carioca MenuDidOpen \(menu) right")
+//                break;
+//            }
+//        }
+    }
+    
+    ///`Optional` Called when the menu is about to be dismissed
+    ///- parameters:
+    ///  - menu: The disappearing menu object
+    public func cariocaMenuWillClose(_ menu:CariocaMenu) {
+//        if(logging){
+//            print("carioca MenuWillClose \(menu)")
+//        }
+    }
+    
+    ///`Optional` Called when the menu is dismissed
+    ///- parameters:
+    ///  - menu: The disappearing menu object
+    public func cariocaMenuDidClose(_ menu:CariocaMenu){
+//        if(logging){
+//            print("carioca MenuDidClose \(menu)")
+//        }
+    }
+    
+    // MARK: -
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//    }
 }
 
 

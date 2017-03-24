@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RichTextEditorInsertMultimediaViewController">
+            <connections>
+                <outlet property="btnInsertImage" destination="oDJ-vb-nkw" id="Nhc-Q2-UnR"/>
+                <outlet property="btnInsertText" destination="4A0-c2-KFy" id="5IT-RB-REM"/>
+                <outlet property="btnInsertVideo" destination="5xv-vj-UEs" id="tjW-3z-81P"/>
+                <outlet property="btnInsertVoice" destination="l7D-Uh-Vp0" id="TOc-dc-NOt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4A0-c2-KFy">
+                    <rect key="frame" x="6" y="11" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.90793488300418224" green="1" blue="0.45204060452778627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="T" image="TextBtn"/>
+                    <connections>
+                        <action selector="insertText:" destination="-1" eventType="touchUpInside" id="UXK-Dm-8zw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDJ-vb-nkw">
+                    <rect key="frame" x="60" y="11" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.90793488300000003" green="1" blue="0.4520406045" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="T" image="ImageBtn"/>
+                    <connections>
+                        <action selector="insertImage:" destination="-1" eventType="touchUpInside" id="djE-fl-3y7"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7D-Uh-Vp0">
+                    <rect key="frame" x="114" y="11" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.90793488300000003" green="1" blue="0.4520406045" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="T" image="VoiceBtn"/>
+                    <connections>
+                        <action selector="insertVoice:" destination="-1" eventType="touchUpInside" id="4la-Un-C7r"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xv-vj-UEs">
+                    <rect key="frame" x="168" y="11" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.90793488300000003" green="1" blue="0.4520406045" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="T" image="VideoBtn"/>
+                    <connections>
+                        <action selector="insertVideo:" destination="-1" eventType="touchUpInside" id="1gD-d6-YvE"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-168.5" y="-332.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ImageBtn" width="66" height="66"/>
+        <image name="TextBtn" width="66" height="66"/>
+        <image name="VideoBtn" width="66" height="66"/>
+        <image name="VoiceBtn" width="66" height="66"/>
+    </resources>
+</document>

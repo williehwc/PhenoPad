@@ -47,6 +47,13 @@
 #import "OptionKeys.h"
 #import "AsyncResultView.h"
 
+////Jixuan
+#define DEFAULT_HORIZONTAL_COLOR    [UIColor colorWithRed:0.5f green:0.5f blue:0.5f alpha:1.0f]
+#define DEFAULT_VERTICAL_COLOR      [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f]
+static CGFloat const fontSize = 25.0;
+static CGFloat lineWidth = 3.0f;
+static CGFloat lineSpace = 60.0f;
+
 @implementation WPTextView
 
 @synthesize inkCollector;
@@ -57,15 +64,123 @@
     WPTextView * textView = [[WPTextView alloc] initWithFrame:frame];
 
     textView.opaque = NO;
-    textView.font = [UIFont fontWithName:@"Arial" size:20.0];
+    textView.font = [UIFont fontWithName:@"Arial" size:fontSize];
     textView.backgroundColor = [UIColor clearColor];
     textView.returnKeyType = UIReturnKeyDefault;
     textView.autoresizesSubviews = YES;
     textView.translatesAutoresizingMaskIntoConstraints = NO;
     textView.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
 
+    
     return textView;
 }
+////////////////////////////////////////////////////jixuan
++ (void)initialize
+{
+    if (self == [WPTextView class]) {
+        id appearance = [self appearance];
+        [appearance setContentMode:UIViewContentModeRedraw];
+        [appearance setHorizontalLineColor:DEFAULT_HORIZONTAL_COLOR];
+        [appearance setVerticalLineColor:DEFAULT_VERTICAL_COLOR];
+    }
+}
+
+
+#pragma mark - Superclass overrides
+
+- (void)drawRect:(CGRect)rect
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(context, lineWidth);
+    
+    if (self.horizontalLineColor) {
+        CGContextBeginPath(context);
+        CGContextSetStrokeColorWithColor(context, self.horizontalLineColor.CGColor);
+        // CGFloat dash[] = {0, lineWidth*2};
+        // CGContextSetLineDash(context, 0, dash, 2);
+        
+        // Create un-mutated floats outside of the for loop.
+        // Reduces memory access.
+        CGFloat baseOffset = 7.0f + self.textContainerInset.top + self.font.descender;
+        CGFloat screenScale = [UIScreen mainScreen].scale;
+        CGFloat boundsX = self.bounds.origin.x;
+        CGFloat boundsWidth = self.bounds.size.width;
+        
+        CGFloat kFactor = 0.0;
+        CGFloat lFactor = 0.0;
+        BOOL isAtLeast7 = [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0;
+        if(isAtLeast7) {
+            kFactor = self.font.pointSize * 0.03268;  // ArialMT  0.03267857143
+            lFactor = self.font.pointSize * 0.03268;
+            //kFactor = self.font.pointSize * 0.0;  // Helvetica
+            //kFactor = self.font.pointSize * 0.028;  // Helvetica Neue (Regular)
+            //kFactor = self.font.pointSize * 0.029;  // Helvetica Neue Thin
+            //kFactor = self.font.pointSize * 0.029;  // Helvetica Neue Light
+            //kFactor = self.font.pointSize * 0.0424;  // Times New Roman
+        }
+        
+        // Only draw lines that are visible on the screen.
+        // (As opposed to throughout the entire view's contents)
+        NSInteger firstVisibleLine = MAX(1, (self.contentOffset.y / (self.font.lineHeight+lineSpace)));
+        NSInteger lastVisibleLine = ceilf((self.contentOffset.y + self.bounds.size.height) / self.font.lineHeight);
+
+        for (NSInteger line = firstVisibleLine; line <= lastVisibleLine; line++) {
+            CGFloat linePointY = (baseOffset + ((self.font.lineHeight + kFactor ) * line) + (lineSpace-lFactor)*(line-1));
+            // Rounding the point to the nearest pixel.
+            // Greatly reduces drawing time.
+            CGFloat roundedLinePointY = roundf(linePointY * screenScale) / screenScale;
+            roundedLinePointY = roundedLinePointY + self.font.descender;
+            CGContextMoveToPoint(context, boundsX, roundedLinePointY);
+            CGContextAddLineToPoint(context, boundsWidth, roundedLinePointY);
+        }
+        CGContextClosePath(context);
+        CGContextStrokePath(context);
+    }
+
+    if (self.verticalLineColor) {
+        CGContextBeginPath(context);
+        CGContextSetStrokeColorWithColor(context, self.verticalLineColor.CGColor);
+        CGContextMoveToPoint(context, -lineWidth + self.textContainerInset.left, self.contentOffset.y);
+        CGContextAddLineToPoint(context, -lineWidth + self.textContainerInset.left, self.contentOffset.y + self.bounds.size.height);
+        CGContextClosePath(context);
+        CGContextStrokePath(context);
+    }
+}
+
+- (CGRect)caretRectForPosition:(UITextPosition *)position {
+    CGRect originalRect = [super caretRectForPosition:position];
+    originalRect.size.height = fontSize;
+    return originalRect;
+}
+
+
+- (void)setFont:(UIFont *)font
+{
+    [super setFont:font];
+    [self setNeedsDisplay];
+}
+
+- (void)setTextContainerInset:(UIEdgeInsets)textContainerInset
+{
+    [super setTextContainerInset:textContainerInset];
+    [self setNeedsDisplay];
+}
+
+
+#pragma mark - Property methods
+
+- (void)setHorizontalLineColor:(UIColor *)horizontalLineColor
+{
+    _horizontalLineColor = horizontalLineColor;
+    [self setNeedsDisplay];
+}
+
+- (void)setVerticalLineColor:(UIColor *)verticalLineColor
+{
+    _verticalLineColor = verticalLineColor;
+    [self setNeedsDisplay];
+}
+////////////////////////////////////////////////////////////////////
 
 - (void) initTextViewWithoutFrame
 {
@@ -96,12 +211,33 @@
     [inkCollector shortcutsEnable:YES delegate:self uiDelegate:nil];
     
     textView.opaque = NO;
-    textView.font = [UIFont fontWithName:@"Arial" size:20.0];
     textView.backgroundColor = [UIColor clearColor];
     textView.returnKeyType = UIReturnKeyDefault;
     textView.autoresizesSubviews = YES;
     textView.translatesAutoresizingMaskIntoConstraints = NO;
     textView.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
+    
+    /////jixuan
+    /// for background lines
+    UIScreen *screen = self.window.screen ?: [UIScreen mainScreen];
+    lineWidth = lineWidth / screen.scale;
+    lineSpace = lineSpace / screen.scale;
+    /// style
+    textView.textContainerInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineSpacing = lineSpace;
+    self.attributedText = [[NSAttributedString alloc]
+                           initWithString:@""
+                           attributes:@{NSParagraphStyleAttributeName : style}];
+    
+    [self setFont: [UIFont fontWithName:@"Arial" size:fontSize]];
+    UIFont *font = self.font;
+    self.font = nil;
+    self.font = font;
+    
+    self.textContainerInset = UIEdgeInsetsMake(40.0f, 0.0f, 0.0f, 0.0f);
+    //self.editable = NO;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -132,6 +268,21 @@
 		[inkCollector enableGestures:(GEST_RETURN | GEST_CUT | GEST_LOOP | GEST_BACK) whenEmpty:NO];
         
         [inkCollector shortcutsEnable:YES delegate:self uiDelegate:nil];
+        
+        
+        /////jixuan
+        self.font = [UIFont fontWithName:@"Arial" size:fontSize];
+        UIFont *font = self.font;
+        self.font = nil;
+        self.font = font;
+        /**
+        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+        style.lineSpacing = 50;
+        self.font = [UIFont fontWithName:@"Arial" size:50.0];
+        self.attributedText = [[NSAttributedString alloc]
+                                   initWithString:@"Predefinedxxx Text"
+                                   attributes:@{NSParagraphStyleAttributeName : style}];
+         **/
             
     }
     return self;

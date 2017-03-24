@@ -140,6 +140,7 @@ enum {
 @property(nonatomic, retain)    NSString *      placeholder2;
 
 
+
 + (void) ensureDefaultSettings:(Boolean)force;
 
 - (void) reloadOptions;
@@ -150,6 +151,8 @@ enum {
 - (void) enterSelectionMode;
 - (void) endSelectionMode;
 - (void) recognizeNow;
+//////jixuan
+- (void) drawBackgroundLines;
 
 @property(assign) id<InkCollectorViewDelegate> delegate;
 

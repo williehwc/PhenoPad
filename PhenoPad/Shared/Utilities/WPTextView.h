@@ -74,6 +74,12 @@ typedef enum {
 - (void) reloadOptions;
 - (void) scrollToVisible;
 
+
+////////////////jixuan
+@property (nonatomic, strong) UIColor *horizontalLineColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *verticalLineColor UI_APPEARANCE_SELECTOR;
+
+
 @property (nonatomic, retain) InkCollectorView * inkCollector;
 @property (nonatomic, readonly ) InputSystem  inputSystem;
 

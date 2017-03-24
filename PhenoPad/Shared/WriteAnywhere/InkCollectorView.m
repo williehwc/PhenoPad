@@ -213,7 +213,9 @@ static DummyInputView * sharedDummyInputView = nil;
 		self.multipleTouchEnabled = NO;
         _bSelectionMode = NO;
 		_nAdded = 0;
-		_bAsyncInkCollector = NO;
+        _bAsyncInkCollector = NO;
+        
+        
 		_inkQueueCondition = [[NSCondition alloc] init];
 		_inkLock = [[NSLock alloc] init];
         _useAsyncRecognizer = YES;      // TODO: this can be disabled, if not needed
@@ -259,6 +261,34 @@ static DummyInputView * sharedDummyInputView = nil;
 	}
 	return self;
 }
+
+///////jixuan
+/////draw background lines
+- (void) drawBackgroundLines
+{
+    /**
+    CGFloat line_width = 3.0;
+    CGFloat line_height = 50.0;
+    
+    CGContextRef	context = UIGraphicsGetCurrentContext();
+    CGContextSetStrokeColorWithColor(context, [UIColor blueColor].CGColor);
+    CGContextSetLineCap(context, kCGLineCapRound);
+    CGContextSetLineJoin(context, kCGLineJoinRound );
+    
+    CGContextSetLineWidth( context, line_width );
+    
+    CGFloat height = self.bounds.size.height;
+    CGFloat width = self.bounds.size.width;
+    int line_num = height / line_height;
+    for (int i = 1; i <= line_num; ++i)
+    {
+        CGContextMoveToPoint( context, 0, i * line_height );
+        CGContextAddLineToPoint( context, width, i * line_height );
+    }
+    CGContextStrokePath(context);
+     **/
+}
+
 
 /*
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
@@ -844,6 +874,9 @@ static DummyInputView * sharedDummyInputView = nil;
 
 -(void)drawRect:(CGRect)rect
 {
+    /////Jixuan
+    [self drawBackgroundLines];
+    
 	CGContextRef	context = UIGraphicsGetCurrentContext();
     
 	// draw the current stroke
@@ -898,7 +931,7 @@ static DummyInputView * sharedDummyInputView = nil;
 {
 	[self killRecoTimer];
 	[self killHoldTimer];
-	INK_Erase( inkData );	
+	INK_Erase( inkData );
     [_currentStrokeView setNeedsDisplay];
 	[self setNeedsDisplay];
 }
