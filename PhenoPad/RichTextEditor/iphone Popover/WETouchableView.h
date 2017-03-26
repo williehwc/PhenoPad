@@ -25,7 +25,7 @@
  */
 @interface WETouchableView : UIView {
 	BOOL touchForwardingDisabled;
-	id <WETouchableViewDelegate> delegate;
+	//id <WETouchableViewDelegate> delegate;
 	NSArray *passthroughViews;
 	BOOL testHits;
 }

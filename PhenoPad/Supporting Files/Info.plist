@@ -43,5 +43,9 @@
 	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>To take a photo of patient</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To select a photo from library</string>
 </dict>
 </plist>

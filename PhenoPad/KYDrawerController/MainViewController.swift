@@ -150,7 +150,7 @@ open class MainViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBInspectable public var leftDrawerWidth: CGFloat = 280 {
         didSet { _leftDrawerWidthConstraint?.constant = leftDrawerWidth }
     }
-    @IBInspectable public var rightDrawerWidth: CGFloat = 280 {
+    @IBInspectable public var rightDrawerWidth: CGFloat = 720 {
         didSet { _rightDrawerWidthConstraint?.constant = rightDrawerWidth }
     }
 
@@ -351,7 +351,7 @@ open class MainViewController: UIViewController, UIGestureRecognizerDelegate {
         
         view.addGestureRecognizer(screenLeftEdgePanGesture)
         view.addGestureRecognizer(screenRightEdgePanGesture)
-        view.addGestureRecognizer(panGesture)
+        // view.addGestureRecognizer(panGesture)
         view.addSubview(_containerView)
         view.addConstraints(
             NSLayoutConstraint.constraints(

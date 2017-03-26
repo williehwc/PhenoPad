@@ -25,6 +25,11 @@ public class ViewController:  UIViewController, UITextViewDelegate, CariocaMenuD
     var toolbarMarkingMenu: FMMarkingMenu!
     var toolbarMarkingMenuItems: [FMMarkingMenuItem]!
     
+    var subjective : NoteViewController? = nil
+    var objective : NoteViewController? = nil
+    var assessment : NoteViewController? = nil
+    var plan : NoteViewController? = nil
+    
     /***
     @IBOutlet var board: Board!
     
@@ -44,7 +49,7 @@ public class ViewController:  UIViewController, UITextViewDelegate, CariocaMenuD
     var nmenu:CariocaMenu?
     // cool tools menu
     var tmenu:CariocaMenu?
-    var curContentController:UIViewController!
+    var curContentController:NoteViewController!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -58,15 +63,15 @@ public class ViewController:  UIViewController, UITextViewDelegate, CariocaMenuD
         }
         **/
         /// toolbar and view
-        self.setupSpeechView()
+        // self.setupSpeechView()
         
         /// marking menu
         // self.createMarkingMenu()
         
         /// wp text view
         // WPTextView
-        self.HPIWritingPad.initTextViewWithoutFrame()
-        self.HPIWritingPad.delegate = self
+//        self.HPIWritingPad.initTextViewWithoutFrame()
+//        self.HPIWritingPad.delegate = self
         
         /**
         let suggestions : SuggestionsView = SuggestionsView.shared()
@@ -116,14 +121,14 @@ public class ViewController:  UIViewController, UITextViewDelegate, CariocaMenuD
 //        notifications.addObserver( self, selector:#selector(ViewController.keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
 //        notifications.addObserver( self, selector:#selector(ViewController.reloadOptions(_:)), name: NSNotification.Name(rawValue: EDITCTL_RELOAD_OPTIONS), object: nil)
         
-        UserDefaults.standard.set(Int(WPLanguageEnglishUS.rawValue), forKey: kGeneralOptionsCurrentLanguage)
-        
-       // self.HPIWritingPad.text = "123"
-        self.HPIWritingPad.setInputMethod(InputSystem_WriteAnywhere)
-        
-        let item : UITextInputAssistantItem = self.HPIWritingPad.inputAssistantItem
-        item.leadingBarButtonGroups = []
-        item.trailingBarButtonGroups = []
+//        UserDefaults.standard.set(Int(WPLanguageEnglishUS.rawValue), forKey: kGeneralOptionsCurrentLanguage)
+//        
+//       // self.HPIWritingPad.text = "123"
+//        self.HPIWritingPad.setInputMethod(InputSystem_WriteAnywhere)
+//        
+//        let item : UITextInputAssistantItem = self.HPIWritingPad.inputAssistantItem
+//        item.leadingBarButtonGroups = []
+//        item.trailingBarButtonGroups = []
 
         /// tool bar Marking Menu
         // view.addSubview(toolbarMarkingGroup)
@@ -221,7 +226,7 @@ public class ViewController:  UIViewController, UITextViewDelegate, CariocaMenuD
 
     override public func viewDidLayoutSubviews() {
         // self.CCBoard.drawingBackgroundLines()
-        toolbarMarkingGroup.frame = CGRect(x: 0, y: view.frame.height - 75, width: view.frame.width, height: 75)
+        // toolbarMarkingGroup.frame = CGRect(x: 0, y: view.frame.height - 75, width: view.frame.width, height: 75)
     }
 
     override public func didReceiveMemoryWarning() {
@@ -460,30 +465,65 @@ public class ViewController:  UIViewController, UITextViewDelegate, CariocaMenuD
         if curContentController != nil {
             curContentController.view.removeFromSuperview()
             curContentController.removeFromParentViewController()
-            curContentController = nil
+            // curContentController = nil
         }
         
         switch index {
             
         case 1:
+            if self.objective != nil {
+                self.addChildViewController(self.objective!)
+                self.view.addSubview(self.objective!.view)
+                curContentController = self.objective
+                break
+            }
             if let obj = self.storyboard?.instantiateViewController(withIdentifier: "objectiveCtrl") {
                 self.addChildViewController(obj)
                 self.view.addSubview(obj.view)
-                curContentController = obj as UIViewController
+                self.objective = obj as! NoteViewController
+                curContentController = obj as! NoteViewController
             }
             break
         case 2:
+            if self.assessment != nil {
+                self.addChildViewController(self.assessment!)
+                self.view.addSubview(self.assessment!.view)
+                curContentController = self.assessment
+                break
+            }
             if let assess = self.storyboard?.instantiateViewController(withIdentifier: "assessmentCtrl"){
                 self.addChildViewController(assess)
                 self.view.addSubview(assess.view)
-                curContentController = assess as UIViewController
+                assessment = assess as! NoteViewController
+                curContentController = assess as! NoteViewController
+            }
+            break
+        case 3:
+            if self.plan != nil {
+                self.addChildViewController(self.plan!)
+                self.view.addSubview(self.plan!.view)
+                curContentController = self.plan
+                break
+            }
+            if let plan = self.storyboard?.instantiateViewController(withIdentifier: "planCtrl") {
+                self.addChildViewController(plan)
+                self.view.addSubview(plan.view)
+                self.plan = plan as! NoteViewController
+                curContentController = plan as! NoteViewController
             }
             break
         default:
-            if let sub = self.storyboard?.instantiateViewController(withIdentifier: "planCtrl") {
+            if self.subjective != nil {
+                self.addChildViewController(self.subjective!)
+                self.view.addSubview(self.subjective!.view)
+                curContentController = self.subjective
+                break
+            }
+            if let sub = self.storyboard?.instantiateViewController(withIdentifier: "subjectiveCtrl") {
                 self.addChildViewController(sub)
                 self.view.addSubview(sub.view)
-                curContentController = sub as UIViewController
+                self.subjective = sub as! NoteViewController
+                curContentController = sub as! NoteViewController
             }
             break
         }

@@ -19,7 +19,7 @@
 	self.downArrowImageName = nil;
 	self.leftArrowImageName = nil;
 	self.rightArrowImageName = nil;
-	[super dealloc];
+//	[super dealloc];
 }
 
 @end
@@ -52,7 +52,9 @@ permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections
 		[self initFrame];
 		self.backgroundColor = [UIColor clearColor];
 		UIImage *theImage = [UIImage imageNamed:properties.bgImageName];
-		bgImage = [[theImage stretchableImageWithLeftCapWidth:properties.leftBgCapSize topCapHeight:properties.topBgCapSize] retain];
+		//bgImage = [[theImage stretchableImageWithLeftCapWidth:properties.leftBgCapSize topCapHeight:properties.topBgCapSize] retain];
+        bgImage = [theImage stretchableImageWithLeftCapWidth:properties.leftBgCapSize topCapHeight:properties.topBgCapSize];
+        
 		
 		self.clipsToBounds = YES;
 		self.userInteractionEnabled = YES;
@@ -61,11 +63,11 @@ permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections
 }
 
 - (void)dealloc {
-	[properties release];
-	[contentView release];
-	[bgImage release];
-	[arrowImage release];
-	[super dealloc];
+//	[properties release];
+//	[contentView release];
+//	[bgImage release];
+//	[arrowImage release];
+//	[super dealloc];
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -108,8 +110,9 @@ permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections
 
 - (void)setContentView:(UIView *)v {
 	if (v != contentView) {
-		[contentView release];
-		contentView = [v retain];		
+		// [contentView release];
+		//contentView = [v retain];
+        contentView = v;
 		contentView.frame = self.contentRect;		
 		[self addSubview:contentView];
 	}
@@ -146,9 +149,11 @@ permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections
 
 - (void)setProperties:(WEPopoverContainerViewProperties *)props {
 	if (properties != props) {
-		[properties release];
-		properties = [props retain];
-	}
+		// [properties release];
+		//properties = [props retain];
+        properties = props;
+
+    }
 }
 
 - (void)determineGeometryForSize:(CGSize)theSize anchorRect:(CGRect)anchorRect displayArea:(CGRect)displayArea permittedArrowDirections:(UIPopoverArrowDirection)supportedArrowDirections {	
@@ -348,16 +353,20 @@ permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections
 	
 	switch (arrowDirection) {
 		case UIPopoverArrowDirectionUp:
-			arrowImage = [upArrowImage retain];
+			//arrowImage = [upArrowImage retain];
+            arrowImage = upArrowImage ;
 			break;
 		case UIPopoverArrowDirectionDown:
-			arrowImage = [downArrowImage retain];
+			//arrowImage = [downArrowImage retain];
+            arrowImage = downArrowImage;
 			break;
 		case UIPopoverArrowDirectionLeft:
-			arrowImage = [leftArrowImage retain];
+			//arrowImage = [leftArrowImage retain];
+            arrowImage = leftArrowImage;
 			break;
 		case UIPopoverArrowDirectionRight:
-			arrowImage = [rightArrowImage retain];
+			//arrowImage = [rightArrowImage retain];
+            arrowImage = rightArrowImage;
 			break;
         default:
             break;

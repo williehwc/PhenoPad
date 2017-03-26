@@ -14,7 +14,10 @@
 #import "LanguageManager.h"
 #import "RecognizerManager.h"
 #import "WPTextView.h"
+#import "NoteTextView.h"
 #import "LetterShapesController.h"
+#import "RichTextEditor.h"
+#import "EditTextByDrawingView.h"
 
 // For FMMarkingMenu
 #import <UIKit/UIGestureRecognizerSubclass.h>

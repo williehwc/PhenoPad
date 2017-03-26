@@ -14,7 +14,7 @@
         <scene sceneID="5Vs-y7-WUz">
             <objects>
                 <navigationController id="Sfe-Bg-3mx" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C5F-Fb-kjK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C5F-Fb-kjK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -42,17 +42,17 @@
                                 <rect key="frame" x="20" y="32" width="728" height="960"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEg-So-N8V">
-                                        <rect key="frame" x="294.5" y="0.0" width="139" height="240"/>
+                                        <rect key="frame" x="295" y="0.0" width="139" height="240"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Subjective"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8H4-2i-8rY">
-                                        <rect key="frame" x="300.5" y="240" width="127" height="240"/>
+                                        <rect key="frame" x="301" y="240" width="127" height="240"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Objective"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSn-Hk-2ao">
-                                        <rect key="frame" x="282.5" y="480" width="163" height="240"/>
+                                        <rect key="frame" x="283" y="480" width="163" height="240"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Assessment"/>
                                     </button>
@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="1600" y="-577"/>
         </scene>
-        <!--View Controller-->
+        <!--Speech View-->
         <scene sceneID="oQP-fm-Bhs">
             <objects>
-                <viewController id="uvE-0p-2uX" sceneMemberID="viewController">
+                <viewController id="uvE-0p-2uX" customClass="SpeechView" customModule="PhenoPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FDW-vz-4TB"/>
                         <viewControllerLayoutGuide type="bottom" id="s1b-Xp-ksE"/>
@@ -97,19 +97,37 @@
                     <view key="view" contentMode="scaleToFill" id="3ui-J3-Mkz">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1dj-yn-H96" customClass="WPTextView">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="s1b-Xp-ksE" firstAttribute="top" secondItem="1dj-yn-H96" secondAttribute="bottom" id="Cax-Bc-hfO"/>
+                            <constraint firstItem="1dj-yn-H96" firstAttribute="top" secondItem="3ui-J3-Mkz" secondAttribute="top" id="JU0-b5-cKd"/>
+                            <constraint firstAttribute="trailing" secondItem="1dj-yn-H96" secondAttribute="trailing" id="mw6-1p-GTF"/>
+                            <constraint firstItem="1dj-yn-H96" firstAttribute="leading" secondItem="3ui-J3-Mkz" secondAttribute="leading" id="q4p-eW-4s8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ipm-em-ALF"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="textView" destination="1dj-yn-H96" id="CYo-xc-IIw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y4V-G3-1Hf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600" y="237"/>
+            <point key="canvasLocation" x="1600" y="236.71874999999997"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KUN-AH-yv9">
             <objects>
                 <navigationController id="g9C-DZ-g2n" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZR4-mt-Dfo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZR4-mt-Dfo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -125,7 +143,7 @@
         <scene sceneID="rgq-8C-QhB">
             <objects>
                 <navigationController id="TUV-7H-vi8" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RQ6-O3-fxG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RQ6-O3-fxG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -140,7 +158,7 @@
         <!--Subjective-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="subjectiveCtrl" id="vXZ-lx-hvc" customClass="ViewController" customModule="PhenoPad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainCtrl" id="vXZ-lx-hvc" customClass="ViewController" customModule="PhenoPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -218,7 +236,7 @@
         <!--Objective-->
         <scene sceneID="Xtq-Bc-uWi">
             <objects>
-                <viewController storyboardIdentifier="objectiveCtrl" id="N2v-hW-0c9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="objectiveCtrl" id="N2v-hW-0c9" customClass="NoteViewController" customModule="PhenoPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6tH-5C-e96"/>
                         <viewControllerLayoutGuide type="bottom" id="kP2-sj-DLv"/>
@@ -226,25 +244,7 @@
                     <view key="view" contentMode="scaleToFill" id="kyV-LY-aR0">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bcB-GO-Tm8">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgn-h8-ZB2" userLabel="Objective">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                        <color key="backgroundColor" red="1" green="0.94670723680000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Objective"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="bcB-GO-Tm8" firstAttribute="leading" secondItem="kyV-LY-aR0" secondAttribute="leading" id="2kE-K8-zIs"/>
-                            <constraint firstItem="bcB-GO-Tm8" firstAttribute="top" secondItem="kyV-LY-aR0" secondAttribute="top" id="KR8-eP-Ftg"/>
-                            <constraint firstItem="kP2-sj-DLv" firstAttribute="top" secondItem="bcB-GO-Tm8" secondAttribute="bottom" id="aWG-od-tJS"/>
-                            <constraint firstAttribute="trailing" secondItem="bcB-GO-Tm8" secondAttribute="trailing" id="dnV-lD-VR5"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Objective" id="8Mh-h2-Pg8"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -256,7 +256,7 @@
         <!--Assessment-->
         <scene sceneID="VKr-p0-nPZ">
             <objects>
-                <viewController storyboardIdentifier="assessmentCtrl" id="PQ3-8C-a2t" userLabel="Assessment" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="assessmentCtrl" id="PQ3-8C-a2t" userLabel="Assessment" customClass="NoteViewController" customModule="PhenoPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vha-L4-4wy"/>
                         <viewControllerLayoutGuide type="bottom" id="aLp-Vm-mFK"/>
@@ -264,25 +264,7 @@
                     <view key="view" contentMode="scaleToFill" id="utU-pC-TzB">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oi1-79-G4w">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9U-Qg-Klh" userLabel="Assessment">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Assessment"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="aLp-Vm-mFK" firstAttribute="top" secondItem="oi1-79-G4w" secondAttribute="bottom" id="00A-TY-ci0"/>
-                            <constraint firstItem="oi1-79-G4w" firstAttribute="leading" secondItem="utU-pC-TzB" secondAttribute="leading" id="11d-DW-zMq"/>
-                            <constraint firstAttribute="trailing" secondItem="oi1-79-G4w" secondAttribute="trailing" id="1cc-3Z-eZI"/>
-                            <constraint firstItem="oi1-79-G4w" firstAttribute="top" secondItem="utU-pC-TzB" secondAttribute="top" id="7vx-aZ-kve"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Assessment" id="sso-zK-Jy0"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -294,7 +276,7 @@
         <!--Plan-->
         <scene sceneID="o9q-Re-bzj">
             <objects>
-                <viewController storyboardIdentifier="planCtrl" id="u7u-Ls-iEy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="planCtrl" id="u7u-Ls-iEy" customClass="NoteViewController" customModule="PhenoPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Cv-RC-bU7"/>
                         <viewControllerLayoutGuide type="bottom" id="7Hl-vg-MgA"/>
@@ -302,25 +284,7 @@
                     <view key="view" contentMode="scaleToFill" id="wPu-I4-mTm">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="esX-qM-wT7">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqV-X3-gOG" userLabel="Plan">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                        <color key="backgroundColor" red="0.66902403539999999" green="0.7908373688" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Plan"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="7Hl-vg-MgA" firstAttribute="top" secondItem="esX-qM-wT7" secondAttribute="bottom" id="2mV-u7-7n4"/>
-                            <constraint firstItem="esX-qM-wT7" firstAttribute="top" secondItem="wPu-I4-mTm" secondAttribute="top" id="Flx-9N-38U"/>
-                            <constraint firstAttribute="trailing" secondItem="esX-qM-wT7" secondAttribute="trailing" id="OGJ-wg-gqh"/>
-                            <constraint firstItem="esX-qM-wT7" firstAttribute="leading" secondItem="wPu-I4-mTm" secondAttribute="leading" id="qlQ-su-gcr"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Plan" id="eQS-dv-Vdl"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -514,6 +478,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYM-sy-CiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3210" y="-185"/>
+        </scene>
+        <!--Subjective-->
+        <scene sceneID="Awn-bE-kbH">
+            <objects>
+                <viewController storyboardIdentifier="subjectiveCtrl" id="oUC-rU-oAG" userLabel="Subjective" customClass="NoteViewController" customModule="PhenoPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pLo-FM-vkg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wn4-bu-1Mc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Ik-wR-vUZ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Objective" id="iVA-No-i3A"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4o5-zj-WJ1" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="664.84375" y="2216.6015625"/>
         </scene>
     </scenes>
 </document>

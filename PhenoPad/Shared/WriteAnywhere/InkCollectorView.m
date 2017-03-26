@@ -1,46 +1,4 @@
-/* ************************************************************************************* */
-/* *    PhatWare WritePad SDK                                                          * */
-/* *    Copyright (c) 2008-2016 PhatWare(r) Corp. All rights reserved.                 * */
-/* ************************************************************************************* */
 
-/* ************************************************************************************* *
- *
- * WritePad Input Panel Sample
- *
- * Unauthorized distribution of this code is prohibited. For more information
- * refer to the End User Software License Agreement provided with this
- * software.
- *
- * This source code is distributed and supported by PhatWare Corp.
- * http://www.phatware.com
- *
- * THIS SAMPLE CODE CAN BE USED  AS A REFERENCE AND, IN ITS BINARY FORM,
- * IN THE USER'S PROJECT WHICH IS INTEGRATED WITH THE WRITEPAD SDK.
- * ANY OTHER USE OF THIS CODE IS PROHIBITED.
- *
- * THE MATERIAL EMBODIED ON THIS SOFTWARE IS PROVIDED TO YOU "AS-IS"
- * AND WITHOUT WARRANTY OF ANY KIND, EXPRESS, IMPLIED OR OTHERWISE,
- * INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY OR
- * FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL PHATWARE CORP.
- * BE LIABLE TO YOU OR ANYONE ELSE FOR ANY DIRECT, SPECIAL, INCIDENTAL,
- * INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND, OR ANY DAMAGES WHATSOEVER,
- * INCLUDING WITHOUT LIMITATION, LOSS OF PROFIT, LOSS OF USE, SAVINGS
- * OR REVENUE, OR THE CLAIMS OF THIRD PARTIES, WHETHER OR NOT PHATWARE CORP.
- * HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSS, HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE
- * POSSESSION, USE OR PERFORMANCE OF THIS SOFTWARE.
- *
- * US Government Users Restricted Rights
- * Use, duplication, or disclosure by the Government is subject to
- * restrictions set forth in EULA and in FAR 52.227.19(c)(2) or subparagraph
- * (c)(1)(ii) of the Rights in Technical Data and Computer Software
- * clause at DFARS 252.227-7013 and/or in similar or successor
- * clauses in the FAR or the DOD or NASA FAR Supplement.
- * Unpublished-- rights reserved under the copyright laws of the
- * United States.  Contractor/manufacturer is PhatWare Corp.
- * 1314 S. Grand Blvd. Ste. 2-175 Spokane, WA 99202
- *
- * ************************************************************************************* */
 
 #include <AudioToolbox/AudioToolbox.h>
 #import "InkCollectorView.h"
@@ -77,7 +35,10 @@
 	if ( inkView != nil && inkView.strokeLen > 0 && inkView.ptStroke != NULL )
     {
         CGContextRef context = UIGraphicsGetCurrentContext();
-		[WPInkView _renderLine:inkView.ptStroke pointCount:inkView.strokeLen inContext:context withWidth:inkView.strokeWidth withColor:inkView.strokeColor];
+        if(inkView.isStylus)
+            [WPInkView _renderLine:inkView.ptStroke pointCount:inkView.strokeLen inContext:context withWidth:inkView.strokeWidth withColor:inkView.strokeColor];
+        else
+            [WPInkView _renderLine:inkView.ptStroke pointCount:inkView.strokeLen inContext:context withWidth:inkView.strokeWidth withColor:[UIColor lightGrayColor]];
 	}
 }
 
@@ -168,7 +129,7 @@ static DummyInputView * sharedDummyInputView = nil;
 		[defaults setBool:NO  forKey:kRecoOptionsSingleWordOnly];
 		[defaults setBool:NO  forKey:kRecoOptionsSeparateLetters];
 		[defaults setBool:NO  forKey:kRecoOptionsInternational];
-		[defaults setBool:NO  forKey:kRecoOptionsDictOnly];
+		[defaults setBool:YES  forKey:kRecoOptionsDictOnly];
 		[defaults setBool:NO  forKey:kRecoOptionsSuggestDictOnly];
 		[defaults setBool:YES forKey:kRecoOptionsDrawGrid];
 		[defaults setBool:NO  forKey:kRecoOptionsSpellIgnoreNum];
@@ -213,9 +174,7 @@ static DummyInputView * sharedDummyInputView = nil;
 		self.multipleTouchEnabled = NO;
         _bSelectionMode = NO;
 		_nAdded = 0;
-        _bAsyncInkCollector = NO;
-        
-        
+		_bAsyncInkCollector = NO;
 		_inkQueueCondition = [[NSCondition alloc] init];
 		_inkLock = [[NSLock alloc] init];
         _useAsyncRecognizer = YES;      // TODO: this can be disabled, if not needed
@@ -251,8 +210,8 @@ static DummyInputView * sharedDummyInputView = nil;
 		}
 
         // placeholder
-        //self.placeholder1 = [NSString stringWithString:NSLocalizedString( @"Write anywhere", @"")];
-        //self.placeholder2 = [NSString stringWithString:NSLocalizedString( @"on the screen", @"")];
+//        self.placeholder1 = [NSString stringWithString:NSLocalizedString( @"Write anywhere", @"")];
+//        self.placeholder2 = [NSString stringWithString:NSLocalizedString( @"on the screen", @"")];
     		
 		// Init shorctus
 		shortcuts = [[Shortcuts alloc] init];
@@ -261,34 +220,6 @@ static DummyInputView * sharedDummyInputView = nil;
 	}
 	return self;
 }
-
-///////jixuan
-/////draw background lines
-- (void) drawBackgroundLines
-{
-    /**
-    CGFloat line_width = 3.0;
-    CGFloat line_height = 50.0;
-    
-    CGContextRef	context = UIGraphicsGetCurrentContext();
-    CGContextSetStrokeColorWithColor(context, [UIColor blueColor].CGColor);
-    CGContextSetLineCap(context, kCGLineCapRound);
-    CGContextSetLineJoin(context, kCGLineJoinRound );
-    
-    CGContextSetLineWidth( context, line_width );
-    
-    CGFloat height = self.bounds.size.height;
-    CGFloat width = self.bounds.size.width;
-    int line_num = height / line_height;
-    for (int i = 1; i <= line_num; ++i)
-    {
-        CGContextMoveToPoint( context, 0, i * line_height );
-        CGContextAddLineToPoint( context, width, i * line_height );
-    }
-    CGContextStrokePath(context);
-     **/
-}
-
 
 /*
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
@@ -874,9 +805,6 @@ static DummyInputView * sharedDummyInputView = nil;
 
 -(void)drawRect:(CGRect)rect
 {
-    /////Jixuan
-    [self drawBackgroundLines];
-    
 	CGContextRef	context = UIGraphicsGetCurrentContext();
     
 	// draw the current stroke
@@ -931,7 +859,7 @@ static DummyInputView * sharedDummyInputView = nil;
 {
 	[self killRecoTimer];
 	[self killHoldTimer];
-	INK_Erase( inkData );
+	INK_Erase( inkData );	
     [_currentStrokeView setNeedsDisplay];
 	[self setNeedsDisplay];
 }
@@ -1391,6 +1319,7 @@ static DummyInputView * sharedDummyInputView = nil;
 
 -(void) showAsyncRecoResult:(NSString *)strResult
 {
+    
     if ([delegate respondsToSelector:@selector(InkCollectorAsyncResultReady:theResult:)])
     {
         [delegate InkCollectorAsyncResultReady:self theResult:strResult];

@@ -93,7 +93,9 @@
 		self.inputAccessoryView = self.toolBar;
 		
 		// Redraw in case enabbled features have changes
-		[self.toolBar redraw];
+        ///jixuan 
+		//  [self.toolBar redraw];
+        
 	}
 	else
 	{

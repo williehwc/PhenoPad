@@ -26,12 +26,12 @@
 @interface WEPopoverController : NSObject<WETouchableViewDelegate> {
 	UIViewController *contentViewController;
 	UIView *view;
-    UIView *parentView;
+    //UIView *parentView;
 	WETouchableView *backgroundView;
 	
 	BOOL popoverVisible;
 	UIPopoverArrowDirection popoverArrowDirection;
-	id <WEPopoverControllerDelegate> delegate;
+	//id <WEPopoverControllerDelegate> delegate;
 	CGSize popoverContentSize;
 	WEPopoverContainerViewProperties *containerViewProperties;
 	id <NSObject> context;

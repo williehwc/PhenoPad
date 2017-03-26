@@ -1,46 +1,3 @@
-/* ************************************************************************************* */
-/* *    PhatWare WritePad SDK                                                          * */
-/* *    Copyright (c) 2008-2015 PhatWare(r) Corp. All rights reserved.                 * */
-/* ************************************************************************************* */
-
-/* ************************************************************************************* *
- *
- * WritePad SDK Sample
- *
- * Unauthorized distribution of this code is prohibited. For more information
- * refer to the End User Software License Agreement provided with this
- * software.
- *
- * This source code is distributed and supported by PhatWare Corp.
- * http://www.phatware.com
- *
- * THIS SAMPLE CODE CAN BE USED  AS A REFERENCE AND, IN ITS BINARY FORM,
- * IN THE USER'S PROJECT WHICH IS INTEGRATED WITH THE WRITEPAD SDK.
- * ANY OTHER USE OF THIS CODE IS PROHIBITED.
- *
- * THE MATERIAL EMBODIED ON THIS SOFTWARE IS PROVIDED TO YOU "AS-IS"
- * AND WITHOUT WARRANTY OF ANY KIND, EXPRESS, IMPLIED OR OTHERWISE,
- * INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY OR
- * FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL PHATWARE CORP.
- * BE LIABLE TO YOU OR ANYONE ELSE FOR ANY DIRECT, SPECIAL, INCIDENTAL,
- * INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND, OR ANY DAMAGES WHATSOEVER,
- * INCLUDING WITHOUT LIMITATION, LOSS OF PROFIT, LOSS OF USE, SAVINGS
- * OR REVENUE, OR THE CLAIMS OF THIRD PARTIES, WHETHER OR NOT PHATWARE CORP.
- * HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSS, HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE
- * POSSESSION, USE OR PERFORMANCE OF THIS SOFTWARE.
- *
- * US Government Users Restricted Rights
- * Use, duplication, or disclosure by the Government is subject to
- * restrictions set forth in EULA and in FAR 52.227.19(c)(2) or subparagraph
- * (c)(1)(ii) of the Rights in Technical Data and Computer Software
- * clause at DFARS 252.227-7013 and/or in similar or successor
- * clauses in the FAR or the DOD or NASA FAR Supplement.
- * Unpublished-- rights reserved under the copyright laws of the
- * United States.  Contractor/manufacturer is PhatWare Corp.
- * 1314 S. Grand Blvd. Ste. 2-175 Spokane, WA 99202
- *
- * ************************************************************************************* */
 
 #import "WPTextView.h"
 #import "UIConst.h"
@@ -50,31 +7,30 @@
 ////Jixuan
 #define DEFAULT_HORIZONTAL_COLOR    [UIColor colorWithRed:0.5f green:0.5f blue:0.5f alpha:1.0f]
 #define DEFAULT_VERTICAL_COLOR      [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f]
-static CGFloat const fontSize = 25.0;
-static CGFloat lineWidth = 3.0f;
-static CGFloat lineSpace = 60.0f;
 
 @implementation WPTextView
 
 @synthesize inkCollector;
 @synthesize inputSystem;
 
+
 + (WPTextView *) createTextView:(CGRect)frame
 {
     WPTextView * textView = [[WPTextView alloc] initWithFrame:frame];
 
     textView.opaque = NO;
-    textView.font = [UIFont fontWithName:@"Arial" size:fontSize];
+    textView.font = [UIFont fontWithName:@"Arial" size:20.0];
     textView.backgroundColor = [UIColor clearColor];
     textView.returnKeyType = UIReturnKeyDefault;
     textView.autoresizesSubviews = YES;
     textView.translatesAutoresizingMaskIntoConstraints = NO;
     textView.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
 
-    
     return textView;
 }
+
 ////////////////////////////////////////////////////jixuan
+
 + (void)initialize
 {
     if (self == [WPTextView class]) {
@@ -86,12 +42,14 @@ static CGFloat lineSpace = 60.0f;
 }
 
 
+/////////////////////////////////////////////////jixuan
+
 #pragma mark - Superclass overrides
 
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, lineWidth);
+    CGContextSetLineWidth(context, _lineWidth);
     
     if (self.horizontalLineColor) {
         CGContextBeginPath(context);
@@ -121,11 +79,11 @@ static CGFloat lineSpace = 60.0f;
         
         // Only draw lines that are visible on the screen.
         // (As opposed to throughout the entire view's contents)
-        NSInteger firstVisibleLine = MAX(1, (self.contentOffset.y / (self.font.lineHeight+lineSpace)));
+        NSInteger firstVisibleLine = MAX(1, (self.contentOffset.y / (self.font.lineHeight+_lineSpace)));
         NSInteger lastVisibleLine = ceilf((self.contentOffset.y + self.bounds.size.height) / self.font.lineHeight);
-
+        
         for (NSInteger line = firstVisibleLine; line <= lastVisibleLine; line++) {
-            CGFloat linePointY = (baseOffset + ((self.font.lineHeight + kFactor ) * line) + (lineSpace-lFactor)*(line-1));
+            CGFloat linePointY = (baseOffset + ((self.font.lineHeight + kFactor ) * line) + (_lineSpace-lFactor)*(line-1));
             // Rounding the point to the nearest pixel.
             // Greatly reduces drawing time.
             CGFloat roundedLinePointY = roundf(linePointY * screenScale) / screenScale;
@@ -136,12 +94,12 @@ static CGFloat lineSpace = 60.0f;
         CGContextClosePath(context);
         CGContextStrokePath(context);
     }
-
+    
     if (self.verticalLineColor) {
         CGContextBeginPath(context);
         CGContextSetStrokeColorWithColor(context, self.verticalLineColor.CGColor);
-        CGContextMoveToPoint(context, -lineWidth + self.textContainerInset.left, self.contentOffset.y);
-        CGContextAddLineToPoint(context, -lineWidth + self.textContainerInset.left, self.contentOffset.y + self.bounds.size.height);
+        CGContextMoveToPoint(context, -_lineWidth + self.textContainerInset.left, self.contentOffset.y);
+        CGContextAddLineToPoint(context, -_lineWidth + self.textContainerInset.left, self.contentOffset.y + self.bounds.size.height);
         CGContextClosePath(context);
         CGContextStrokePath(context);
     }
@@ -149,7 +107,7 @@ static CGFloat lineSpace = 60.0f;
 
 - (CGRect)caretRectForPosition:(UITextPosition *)position {
     CGRect originalRect = [super caretRectForPosition:position];
-    originalRect.size.height = fontSize;
+    originalRect.size.height = _fontSize;
     return originalRect;
 }
 
@@ -180,10 +138,13 @@ static CGFloat lineSpace = 60.0f;
     _verticalLineColor = verticalLineColor;
     [self setNeedsDisplay];
 }
-////////////////////////////////////////////////////////////////////
+
 
 - (void) initTextViewWithoutFrame
 {
+    self.fontSize = 25.0f;
+    self.lineWidth = 3.0f;
+    self.lineSpace = 60.0f;
     WPTextView * textView = self;
     inputSystem = InputSystem_Default;
     
@@ -220,18 +181,18 @@ static CGFloat lineSpace = 60.0f;
     /////jixuan
     /// for background lines
     UIScreen *screen = self.window.screen ?: [UIScreen mainScreen];
-    lineWidth = lineWidth / screen.scale;
-    lineSpace = lineSpace / screen.scale;
+    _lineWidth = _lineWidth / screen.scale;
+    _lineSpace = _lineSpace / screen.scale;
     /// style
     textView.textContainerInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
-
+    
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.lineSpacing = lineSpace;
+    style.lineSpacing = _lineSpace;
     self.attributedText = [[NSAttributedString alloc]
-                           initWithString:@""
+                           initWithString:@"jhgjhgjhgjg\ngjhgjhgjhgjhgjhgjhgj"
                            attributes:@{NSParagraphStyleAttributeName : style}];
     
-    [self setFont: [UIFont fontWithName:@"Arial" size:fontSize]];
+    [self setFont: [UIFont fontWithName:@"Arial" size:_fontSize]];
     UIFont *font = self.font;
     self.font = nil;
     self.font = font;
@@ -240,10 +201,28 @@ static CGFloat lineSpace = 60.0f;
     //self.editable = NO;
 }
 
+- (void) appendAttributedString:(NSString*) s
+{
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineSpacing = _lineSpace;
+    self.attributedText = [[NSAttributedString alloc]
+                           initWithString:s
+                           attributes:@{NSParagraphStyleAttributeName : style}];
+    [self setFont: [UIFont fontWithName:@"Arial" size:_fontSize]];
+    UIFont *font = self.font;
+    self.font = nil;
+    self.font = font;
+}
+
+////////////////////////////////////////////////////////////////////end jixuan
+
 - (id)initWithFrame:(CGRect)frame
 {
     if ((self = [super initWithFrame:frame])) 
 	{
+        self.fontSize = 25.0f;
+        self.lineWidth = 3.0f;
+        self.lineSpace = 60.0f;
 		inputSystem = InputSystem_Default;
         
         // create full screen ink collector
@@ -269,24 +248,40 @@ static CGFloat lineSpace = 60.0f;
         
         [inkCollector shortcutsEnable:YES delegate:self uiDelegate:nil];
         
+        self.opaque = NO;
+        self.backgroundColor = [UIColor clearColor];
+        self.returnKeyType = UIReturnKeyDefault;
+        self.autoresizesSubviews = YES;
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+        self.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
         
         /////jixuan
-        self.font = [UIFont fontWithName:@"Arial" size:fontSize];
+        /// for background lines
+        UIScreen *screen = self.window.screen ?: [UIScreen mainScreen];
+        _lineWidth = _lineWidth / screen.scale;
+        _lineSpace = _lineSpace / screen.scale;
+        /// style
+        self.textContainerInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+        
+        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+        style.lineSpacing = _lineSpace;
+        self.attributedText = [[NSAttributedString alloc]
+                               initWithString:@"jhgjhgjhgjg\ngjhgjhgjhgjhgjhgjhgj"
+                               attributes:@{NSParagraphStyleAttributeName : style}];
+        
+        [self setFont: [UIFont fontWithName:@"Arial" size:_fontSize]];
         UIFont *font = self.font;
         self.font = nil;
         self.font = font;
-        /**
-        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-        style.lineSpacing = 50;
-        self.font = [UIFont fontWithName:@"Arial" size:50.0];
-        self.attributedText = [[NSAttributedString alloc]
-                                   initWithString:@"Predefinedxxx Text"
-                                   attributes:@{NSParagraphStyleAttributeName : style}];
-         **/
-            
+        
+        self.textContainerInset = UIEdgeInsetsMake(40.0f, 0.0f, 0.0f, 0.0f);
+        //self.editable = NO;
+        
     }
     return self;
 }
+
+
 
 - (void) reloadOptions
 {
@@ -315,6 +310,7 @@ static CGFloat lineSpace = 60.0f;
     
     [self resignFirstResponder];
     inputSystem = is;
+    UIView* emptyKeyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
     switch( inputSystem )
     {
         case InputSystem_InputPanel :
@@ -329,12 +325,15 @@ static CGFloat lineSpace = 60.0f;
             [self.superview insertSubview:inkCollector belowSubview:[SuggestionsView sharedSuggestionsView]];
             break;
             
+        case InputSystem_NoKeyboard:
+            self.inputView = emptyKeyView;
+            break;
         case InputSystem_Keyboard :
         default :
             self.inputView = nil;
             break;
     }
-    //[self becomeFirstResponder];
+    [self becomeFirstResponder];
 }
 
 - (BOOL) becomeFirstResponder
@@ -488,6 +487,19 @@ static CGFloat lineSpace = 60.0f;
     [self hideSuggestions];
 }
 
+- (void) setTextLocation:(CGPoint) pointInTextView startOrEnd:(BOOL)startOrEnd{
+    
+    if(startOrEnd){
+        self.startSelTextPos = [self closestPositionToPoint:pointInTextView];
+        UITextRange * range = [self textRangeFromPosition:self.startSelTextPos toPosition:self.startSelTextPos];
+        self.selectedTextRange = range;
+    }else{
+        [self becomeFirstResponder];
+        self.endSelTextPos = [self closestPositionToPoint:pointInTextView];
+        UITextRange * range = [self textRangeFromPosition:self.startSelTextPos toPosition:self.endSelTextPos];
+        [self setSelectedTextRange:range];
+    }
+}
 
 #pragma mark -- Scroll text Up and Down
 
@@ -821,6 +833,43 @@ static CGFloat lineSpace = 60.0f;
 {
 }
 
+- (BOOL) WritePadInputPanelRecognizedShape:(WritePadInputPanel *)inkView withGesture:(SHAPETYPE)shape isEmpty:(BOOL)bEmpty
+{
+    [self unmarkText];
+    switch (shape) {
+        case SHAPE_UNKNOWN:
+            NSLog(@"SHAPE_UNKNOWN");
+            break;
+        case SHAPE_TRIANGLE:
+            NSLog(@"SHAPE_TRIANGLE");
+            break;
+        case SHAPE_CIRCLE:
+            NSLog(@"SHAPE_CIRCLE");
+            break;
+        case SHAPE_ELLIPSE:
+            NSLog(@"SHAPE_ELLIPSE");
+            break;
+        case SHAPE_RECTANGLE:
+            NSLog(@"SHAPE_RECTANGLE");
+            break;
+        case SHAPE_LINE:
+            NSLog(@"SHAPE_LINE");
+            break;
+        case SHAPE_ARROW:
+            NSLog(@"SHAPE_ARROW");
+            break;
+        case SHAPE_SCRATCH:
+            NSLog(@"SHAPE_SCRATCH");
+            break;
+        case SHAPE_ALL:
+            NSLog(@"SHAPE_ALL");
+            break;
+            
+        default:
+            break;
+    }
+    return NO;
+}
 - (BOOL) WritePadInputPanelRecognizedGesture:(WritePadInputPanel*)inkView withGesture:(GESTURE_TYPE)gesture isEmpty:(BOOL)bEmpty
 {
     [self unmarkText];
