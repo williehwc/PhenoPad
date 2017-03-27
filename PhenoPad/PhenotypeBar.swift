@@ -13,7 +13,7 @@ public class PhenotypeBar: UIScrollView {
     let ITEM_SPACE:CGFloat = 10.0
     let TOP_BOTTOM:CGFloat = 5.0
     var formerview:UIView?
-    var noteViewController:UIViewController?
+    var noteViewController:NoteViewController?
 
     
     override init(frame:CGRect) {
@@ -24,29 +24,29 @@ public class PhenotypeBar: UIScrollView {
         
         self.addPhenotype(phenotype: "Phenotype 1")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype asdfasdf")
+        self.addPhenotype(phenotype: "Phenotype 2")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype 23235235")
+        self.addPhenotype(phenotype: "Phenotype 3")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype asdfasdf")
+        self.addPhenotype(phenotype: "Phenotype 4")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype 23235235")
+        self.addPhenotype(phenotype: "Phenotype 5")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype asdfasdf")
+        self.addPhenotype(phenotype: "Phenotype 6")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype 23235235")
+        self.addPhenotype(phenotype: "Phenotype 7")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype asdfasdf")
+        self.addPhenotype(phenotype: "Phenotype 8")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype 23235235")
+        self.addPhenotype(phenotype: "Phenotype 9")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype asdfasdf")
+        self.addPhenotype(phenotype: "Phenotype 10")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype 23235235")
+        self.addPhenotype(phenotype: "Phenotype 11")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype asdfasdf")
+        self.addPhenotype(phenotype: "Phenotype 12")
         self.addSeperator()
-        self.addPhenotype(phenotype: "Phenotype 23235235")
+        self.addPhenotype(phenotype: "Phenotype 13")
         
     }
     
@@ -67,6 +67,8 @@ public class PhenotypeBar: UIScrollView {
         btn.setTitleColor(UIColor.init(red: 0, green: 122, blue: 255), for: .normal)
         btn.sizeToFit()
         btn.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
+        
+        btn.addTarget(self, action: #selector(dragOutside), for: .touchDragOutside)
         self.addView(view: btn, after: formerview, withSpace: true)
         formerview = btn
     }
@@ -109,11 +111,63 @@ public class PhenotypeBar: UIScrollView {
         tableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
         tableViewController.preferredContentSize = CGSize(width: 400, height: 200)
         
+        
         noteViewController?.present(tableViewController, animated: true, completion: nil)
         
         let popoverPresentationController = tableViewController.popoverPresentationController
         popoverPresentationController?.sourceView = sender
         popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.size.width, height: sender.frame.size.height)
+    }
+    
+    @IBAction func dragOutside(sender: UIButton){
+        let newFrame = sender.convert(sender.bounds, to: nil)
+        let x = newFrame.origin.x
+        let y = newFrame.origin.y
+        
+        noteViewController!.addPhenoLabel(CGPoint(x:x, y:y-30), name: sender.currentTitle!)
+        //sender.removeFromSuperview()
+        
+    }
+    
+    func rearrangeSubviews(){
+        var names = Array<String>()
+        for sub in self.subviews {
+            if let ss = sub as? UIButton {
+                names.append(ss.currentTitle!)
+            }
+            sub.removeFromSuperview()
+        }
+        for name in names {
+            self.addPhenotype(phenotype: name)
+            self.addSeperator()
+        
+        }
+        self.addPhenotype(phenotype: "Phenotype 1")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 2")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 3")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 4")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 5")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 6")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 7")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 8")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 9")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 10")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 11")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 12")
+        self.addSeperator()
+        self.addPhenotype(phenotype: "Phenotype 13")
+
     }
 
 }

@@ -18,6 +18,10 @@
 #import "LetterShapesController.h"
 #import "RichTextEditor.h"
 #import "EditTextByDrawingView.h"
+#import "SpeechViewTextView.h"
+#import "FloatPanelView.h"
+#import "EditNoteView.h"
+#import "PhenoLabelView.h"
 
 // For FMMarkingMenu
 #import <UIKit/UIGestureRecognizerSubclass.h>

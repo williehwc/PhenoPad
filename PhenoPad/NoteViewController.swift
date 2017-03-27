@@ -9,23 +9,26 @@ import ImagePicker
 import Lightbox
 
 //class ViewController: UIViewController, FMMarkingMenuDelegate, UITextViewDelegate { //,  {
-class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDelegate, NoteTextViewDelegate, ImagePickerDelegate{
+class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDelegate, NoteTextViewDelegate, ImagePickerDelegate, FMMarkingMenuDelegate, EditNoteViewDelegate{
     
     //////////  DrawingBoard //////////
     var brushes = [PencilBrush(), LineBrush(), DashLineBrush(), RectangleBrush(), EllipseBrush(), EraserBrush()]
     var nameToBrushes: [String: BaseBrush] = ["Pencil": PencilBrush(), "Line": LineBrush(), "Dotted": DashLineBrush(), "Eraser": EraserBrush()]
     //@IBOutlet weak var CCBoard: Board!
     var HPIWritingPad: NoteTextView!
-
-    /***
-     @IBOutlet var board: Board!
-     
+    var editInkCollector: EditNoteView!
+    var board: Board!
+       /***
      // writing pad
      @IBOutlet weak var textView: WPTextView!
      ***/
     var suggestionsHeight : NSLayoutConstraint!
     var keyboardHeight : NSLayoutConstraint!
     
+    //FIXME: deal with close panels
+    var floatPanels:Array<FloatPanelView>!;
+    var floatPhenos:Array<PhenoLabelView>!;
+    var phenoNames:Array<String>!;
     // Marking menu
     var ccMarkingMenu: FMMarkingMenu!
     var ccMarkingMenuItems: [FMMarkingMenuItem]!
@@ -37,14 +40,7 @@ class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDele
     override public func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib
-        /// drawing board
-        /**
-         self.CCBoard.brush = nameToBrushes["Pencil"]
-         self.CCBoard.drawingStateChangedBlock = {(state: DrawingState) -> () in
-         if state != .moved {
-         }
-         }
-         **/
+        
         
         /// marking menu
         // self.createMarkingMenu()
@@ -108,94 +104,38 @@ class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDele
         // self.HPIWritingPad.text = "123"
         self.HPIWritingPad.setInputMethod(InputSystem_WriteAnywhere)
         
+        
+        ///////float panel
+        floatPanels = Array<FloatPanelView>()
+        floatPhenos = Array<PhenoLabelView>()
+        phenoNames = Array<String>()
+        
         let item : UITextInputAssistantItem = self.HPIWritingPad.inputAssistantItem
         item.leadingBarButtonGroups = []
         item.trailingBarButtonGroups = []
+    
+        editInkCollector = EditNoteView(frame: self.HPIWritingPad.frame)
+        editInkCollector.backgroundColor = UIColor.clear
+        editInkCollector.autoresizingMask = [.flexibleHeight, .flexibleWidth];
+        editInkCollector.contentMode = UIViewContentMode.redraw;
+        editInkCollector.autoresizesSubviews = true;
+        editInkCollector.translatesAutoresizingMaskIntoConstraints = false;
+        editInkCollector.autoRecognize = true;
+        editInkCollector.backgroundReco = true;
+        editInkCollector.delegate = self;
+        editInkCollector.edit = self.HPIWritingPad;
+        editInkCollector.isHidden = true;
+        self.view.addSubview(editInkCollector)
         
-        /// tool bar Marking Menu
-        // view.addSubview(toolbarMarkingGroup)
-        // toolbarMarkingGroup.axis = UILayoutConstraintAxis.horizontal
-        // toolbarMarkingGroup.distribution = UIStackViewDistribution.fillEqually
-        
-        
-        /***
-         // marking menu
-         self.createMarkingMenu()
-         
-         // drawing board
-         self.board.brush = nameToBrushes["Pencil"]
-         self.board.drawingStateChangedBlock = {(state: DrawingState) -> () in
-         if state != .moved {
-         //                UIView.beginAnimations(nil, context: nil)
-         //                if state == .began {
-         //
-         //                } else if state == .ended {
-         //
-         //                }
-         //                UIView.commitAnimations()
-         }
-         }
-         
-         // WPTextView
-         self.textView.initTextViewWithoutFrame()
-         self.textView.delegate = self
-         
-         let suggestions : SuggestionsView = SuggestionsView.shared()
-         suggestions.showResultsinKeyboard(self.view, in:self.view.bounds)
-         suggestions.translatesAutoresizingMaskIntoConstraints = false
-         suggestions.backgroundColor = UIColor( white: 0.22, alpha:0.92)
-         
-         self.suggestionsHeight = NSLayoutConstraint( item:suggestions,
-         attribute: NSLayoutAttribute.height,
-         relatedBy: NSLayoutRelation.equal, toItem: nil,
-         attribute: NSLayoutAttribute.height,
-         multiplier: 1.0, constant: SuggestionsView.getHeight())
-         suggestions.addConstraint( self.suggestionsHeight )
-         
-         let leftS = NSLayoutConstraint( item:suggestions,
-         attribute: NSLayoutAttribute.left,
-         relatedBy: NSLayoutRelation.equal, toItem:self.view,
-         attribute: NSLayoutAttribute.left,
-         multiplier: 1.0, constant: 0.0 )
-         self.view.addConstraint( leftS )
-         let topS = NSLayoutConstraint( item:suggestions,
-         attribute: NSLayoutAttribute.top,
-         relatedBy: NSLayoutRelation.equal, toItem:self.view,
-         attribute: NSLayoutAttribute.top,
-         multiplier: 1.0, constant: 0.0 )
-         self.view.addConstraint( topS )
-         let rightS = NSLayoutConstraint( item:suggestions,
-         attribute: NSLayoutAttribute.right,
-         relatedBy: NSLayoutRelation.equal, toItem:self.view,
-         attribute: NSLayoutAttribute.right,
-         multiplier: 1.0, constant: 0.0 )
-         self.view.addConstraint( rightS )
-         
-         
-         self.keyboardHeight = NSLayoutConstraint( item: self.view,
-         attribute: NSLayoutAttribute.bottom,
-         relatedBy: NSLayoutRelation.equal, toItem: self.view,
-         attribute: NSLayoutAttribute.bottom,
-         multiplier: 1.0, constant: 0.0 )
-         self.view.addConstraint( self.keyboardHeight )
-         
-         let notifications = NotificationCenter.default
-         notifications.addObserver( self, selector:#selector(ViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-         notifications.addObserver( self, selector:#selector(ViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-         notifications.addObserver( self, selector:#selector(ViewController.keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-         notifications.addObserver( self, selector:#selector(ViewController.reloadOptions(_:)), name: NSNotification.Name(rawValue: EDITCTL_RELOAD_OPTIONS), object: nil)
-         
-         UserDefaults.standard.set(Int(WPLanguageEnglishUS.rawValue), forKey: kGeneralOptionsCurrentLanguage)
-         
-         self.textView.text = "123"
-         self.textView.setInputMethod(InputSystem_InputPanel)
-         ***/
-        
-        /// phenotype view
+                /// phenotype view
         phenotypeBar = PhenotypeBar(frame: CGRect(x: 0, y: self.view.frame.size.height - 40 , width: self.view.frame.width, height: 40))
         self.view.addSubview(self.phenotypeBar)
         phenotypeBar.noteViewController = self
+        
+       // phenotypeBar.layer.zPosition = CGFloat.greatestFiniteMagnitude
 
+        
+        //addPhenoLabel(CGPoint(x:200, y:600), "test")
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -211,8 +151,8 @@ class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDele
     
     ///////////////////////////////////////////////
     // Marking menu
-    /********
-     func createMarkingMenu(){
+    
+    func createMarkingMenu(){
      //        let toolTopLevel = FMMarkingMenuItem(label: MenuCategories.DrawingTools.rawValue, subItems:[
      //            FMMarkingMenuItem(label: MenuItems.Pencil.rawValue, category: MenuCategories.DrawingTools.rawValue, isSelected: true),
      //            FMMarkingMenuItem(label: MenuItems.Line.rawValue, category: MenuCategories.DrawingTools.rawValue),
@@ -229,9 +169,10 @@ class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDele
      strokeColorSlider]
      
      ccMarkingMenuItems = toolTopLevel
-     ccMarkingMenu = FMMarkingMenu(viewController: self, view: self.CCBoard, markingMenuItems: ccMarkingMenuItems)
+     ccMarkingMenu = FMMarkingMenu(viewController: self, view: self.board, markingMenuItems: ccMarkingMenuItems)
      ccMarkingMenu.markingMenuDelegate = self
      
+        /**
      toolbarMarkingMenuItems = [ FMMarkingMenuItem(label: MenuItems.Speech.rawValue,category: MenuCategories.Tools.rawValue),
      FMMarkingMenuItem(label: MenuItems.Camera.rawValue,category: MenuCategories.Tools.rawValue),
      FMMarkingMenuItem(label: MenuItems.Video.rawValue,category: MenuCategories.Tools.rawValue)]
@@ -241,8 +182,9 @@ class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDele
      
      toolbarWidget?.markingMenuDelegate = self
      toolbarMarkingGroup.addArrangedSubview(toolbarWidget!)
+ **/
      }
-     ****/
+    
     enum MenuCategories: String
     {
         case DrawingTools = "Drawing tools"
@@ -259,7 +201,7 @@ class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDele
         case Camera
         case Video
     }
-    /****
+    
      func FMMarkingMenuItemSelected(_ markingMenu: FMMarkingMenu, markingMenuItem: FMMarkingMenuItem)
      {
      guard let category = MenuCategories(rawValue: markingMenuItem.category!),
@@ -274,44 +216,29 @@ class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDele
      FMMarkingMenu.setExclusivelySelected(markingMenuItem, markingMenuItems: ccMarkingMenuItems)
      switch category {
      case MenuCategories.DrawingTools:
-     self.CCBoard.brush = nameToBrushes[itemName]
+     self.board.brush = nameToBrushes[itemName]
      if itemName == "Eraser"{
      strokeWidthSlider = FMMarkingMenuItem(label: "Stroke width", valueSliderValue: 0.6, valueSliderType: 2)
-     self.CCBoard.strokeWidth = 20 * strokeWidthSlider.valueSliderValue
+     self.board.strokeWidth = 20 * strokeWidthSlider.valueSliderValue
      } else {
      // FIX ME
      strokeWidthSlider = FMMarkingMenuItem(label: "Stroke width", valueSliderValue: 0.05, valueSliderType: 2)
-     self.CCBoard.strokeWidth = 20 * strokeWidthSlider.valueSliderValue
+     self.board.strokeWidth = 20 * strokeWidthSlider.valueSliderValue
      }
      default:
      break
      }
      }
      else {
-     switch category {
-     case MenuCategories.Tools:
-     if itemName == "Speech"{
-     if self.speechView?.isHidden == true {
-     self.speechView?.isHidden = false
-     speechView?.frame = CGRect(x: 0, y: self.view.frame.height - 75 - (speechView?.height)!, width: view.frame.width, height: (speechView?.height)!)
-     //self.updateToolbarForSettingsView(self.speechView!.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height + CGFloat(75))
-     } else {
-     self.speechView?.isHidden = true
-     // self.updateToolbarForSettingsView(CGFloat(75))
-     }
-     
-     }
-     default:
-     break
-     }
-     }
+          }
      //updateFilters()
      }
+    
      func FMMarkingMenuValueSliderChange(_ markingMenu: FMMarkingMenu, markingMenuItem: FMMarkingMenuItem, newValue: CGFloat, distanceToMenuOrigin: CGFloat) {
      if markingMenu === ccMarkingMenu {
      if markingMenuItem.valueSlideType == 2{
      if newValue > 0.01 {
-     self.CCBoard.strokeWidth = 20 * strokeWidthSlider.valueSliderValue
+     self.board.strokeWidth = 20 * strokeWidthSlider.valueSliderValue
      }
      } else if markingMenuItem.valueSlideType == 1{
      var v = Float(1)
@@ -319,11 +246,11 @@ class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDele
      v = Float((distanceToMenuOrigin-50)>0 ? (distanceToMenuOrigin-50) : 0) / Float(234 - 50)
      }
      let rgb = HSV.rgb(h: 360.0*Float(newValue), s: 1.0, v: v)
-     self.CCBoard.strokeColor = UIColor.init(red: CGFloat(rgb.r), green: CGFloat(rgb.g), blue: CGFloat(rgb.b), alpha: CGFloat(1.0))
+     self.board.strokeColor = UIColor.init(red: CGFloat(rgb.r), green: CGFloat(rgb.g), blue: CGFloat(rgb.b), alpha: CGFloat(1.0))
      }
      }
      
-     }***/
+     }
     // Marking Menu
     /////////////////////////////////////////
     
@@ -408,6 +335,19 @@ class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDele
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @objc public func selectPaint(){
+        self.addDrawingPanel()
+    }
+    @objc public func selectEdit(){
+        self.editInkCollector.isHidden = false;
+    }
+    @objc public func selectKeyboard() {
+        self.editInkCollector.isHidden = false;
+    }
+    @objc public func selectStylus(){
+        self.editInkCollector.isHidden = true;
+    }
+    
     // MARK: - ImagePickerDelegate
     
     public func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
@@ -427,6 +367,58 @@ class NoteViewController:  UIViewController, UITextViewDelegate, CariocaMenuDele
     
     public func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         imagePicker.dismiss(animated: true, completion: nil)
+        
+        self.floatPanels.append(FloatPanelView())
+        let ff = (self.floatPanels.last)!
+        ff.type = PHOTO_PANEL
+        ff.view.frame = CGRect(x: self.HPIWritingPad.insertPosi.origin.x, y: self.HPIWritingPad.insertPosi.origin.y, width: 300, height: 300-15)
+        
+        let imageView = UIImageView(frame: CGRect(x:0, y:15, width:ff.view.width, height:ff.view.height))
+        imageView.image = images[0]
+        ff.view.addSubview(imageView)
+        self.view.addSubview(ff.view)
+       
+        
+       
+        ff.view.isUserInteractionEnabled = true
+    }
+    
+    public func addPhenoLabel(_ posi:CGPoint, name:String){
+        if(!phenoNames.contains(name)){
+            self.floatPhenos.append(PhenoLabelView())
+            let ff = (self.floatPhenos.last)!
+            ff.view.frame = CGRect(x: posi.x, y: posi.y, width: 212, height: 29)
+            ff.setPheno(name)
+            self.view.addSubview(ff.view)
+            phenoNames.append(name)
+        }
+    }
+    
+    public func addDrawingPanel(){
+        self.floatPanels.append(FloatPanelView())
+        let fp = (self.floatPanels.last)!
+
+        self.view.addSubview((fp.view)!)
+        fp.type = DRAWING_PANEL
+        fp.view.frame = CGRect(x: self.HPIWritingPad.insertPosi.origin.x, y: self.HPIWritingPad.insertPosi.origin.y, width: 300, height: 300-15)        /// drawing board
+        
+        
+        self.board = Board(frame: CGRect(x: 0, y: 15, width: 300, height: 300-15));
+        // marking menu
+        self.createMarkingMenu()
+        // drawing board
+        self.board.brush = nameToBrushes["Pencil"]
+        self.board.drawingStateChangedBlock = {(state: DrawingState) -> () in
+            if state != .moved {
+            }
+        }
+
+        
+        fp.view.addSubview(self.board)
+    }
+    
+    @objc public func openStylePopup(_ rect:CGRect) {
+        self.HPIWritingPad.popupRect(rect);
     }
     
 }

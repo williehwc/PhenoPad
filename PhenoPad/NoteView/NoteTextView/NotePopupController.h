@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "DropDownListView.h"
 typedef enum POPUP_BUTTONS{
-    keyboard, stylus, camera, photo, video
+    keyboard, stylus, camera, photo, video,paint,edit
 } POPBUTTON_TYPE;
 
 @protocol NotePopupControllerDelegate <NSObject>

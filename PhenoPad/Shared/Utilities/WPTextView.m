@@ -33,12 +33,13 @@
 
 + (void)initialize
 {
-    if (self == [WPTextView class]) {
+    //if (self == [WPTextView class]) {
         id appearance = [self appearance];
         [appearance setContentMode:UIViewContentModeRedraw];
         [appearance setHorizontalLineColor:DEFAULT_HORIZONTAL_COLOR];
         [appearance setVerticalLineColor:DEFAULT_VERTICAL_COLOR];
-    }
+    
+    //}
 }
 
 
@@ -46,6 +47,7 @@
 
 #pragma mark - Superclass overrides
 
+/**
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -104,6 +106,9 @@
         CGContextStrokePath(context);
     }
 }
+**/
+
+
 
 - (CGRect)caretRectForPosition:(UITextPosition *)position {
     CGRect originalRect = [super caretRectForPosition:position];
@@ -142,9 +147,11 @@
 
 - (void) initTextViewWithoutFrame
 {
-    self.fontSize = 25.0f;
-    self.lineWidth = 3.0f;
-    self.lineSpace = 60.0f;
+    [self setHorizontalLineColor:DEFAULT_HORIZONTAL_COLOR];
+    [self setVerticalLineColor:DEFAULT_VERTICAL_COLOR];
+//    self.fontSize = 25.0f;
+//    self.lineWidth = 3.0f;
+//    self.lineSpace = 60.0f;
     WPTextView * textView = self;
     inputSystem = InputSystem_Default;
     
@@ -214,15 +221,37 @@
     self.font = font;
 }
 
+
+- (void) setStyle:(CGFloat) fontSize lineWidth:(CGFloat)linewidth lineSpace:(CGFloat)linespace
+{
+    self.fontSize = fontSize;
+    self.lineSpace = linespace;
+    self.lineWidth =linewidth;
+    
+    /// for background lines
+    UIScreen *screen = self.window.screen ?: [UIScreen mainScreen];
+    _lineWidth = _lineWidth / screen.scale;
+    _lineSpace = _lineSpace / screen.scale;
+    /// style
+    self.textContainerInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+    
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineSpacing = _lineSpace;
+    self.attributedText = [[NSAttributedString alloc]
+                           initWithString:@""
+                           attributes:@{NSParagraphStyleAttributeName : style}];
+    [self setFont: [UIFont fontWithName:@"Arial" size:_fontSize]];
+    self.textContainerInset = UIEdgeInsetsMake(40.0f, 0.0f, 0.0f, 0.0f);
+}
 ////////////////////////////////////////////////////////////////////end jixuan
 
 - (id)initWithFrame:(CGRect)frame
 {
     if ((self = [super initWithFrame:frame])) 
 	{
-        self.fontSize = 25.0f;
-        self.lineWidth = 3.0f;
-        self.lineSpace = 60.0f;
+        [self setHorizontalLineColor:DEFAULT_HORIZONTAL_COLOR];
+        [self setVerticalLineColor:DEFAULT_VERTICAL_COLOR];
+
 		inputSystem = InputSystem_Default;
         
         // create full screen ink collector
@@ -254,29 +283,6 @@
         self.autoresizesSubviews = YES;
         self.translatesAutoresizingMaskIntoConstraints = NO;
         self.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
-        
-        /////jixuan
-        /// for background lines
-        UIScreen *screen = self.window.screen ?: [UIScreen mainScreen];
-        _lineWidth = _lineWidth / screen.scale;
-        _lineSpace = _lineSpace / screen.scale;
-        /// style
-        self.textContainerInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
-        
-        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-        style.lineSpacing = _lineSpace;
-        self.attributedText = [[NSAttributedString alloc]
-                               initWithString:@"jhgjhgjhgjg\ngjhgjhgjhgjhgjhgjhgj"
-                               attributes:@{NSParagraphStyleAttributeName : style}];
-        
-        [self setFont: [UIFont fontWithName:@"Arial" size:_fontSize]];
-        UIFont *font = self.font;
-        self.font = nil;
-        self.font = font;
-        
-        self.textContainerInset = UIEdgeInsetsMake(40.0f, 0.0f, 0.0f, 0.0f);
-        //self.editable = NO;
-        
     }
     return self;
 }
@@ -405,6 +411,31 @@
     self.selectedRange = NSMakeRange( self.selectedRange.location + [string length], 0 );
     [inkView.inputPanel empty];
 }
+
+- (void) addSpeech:(NSString*) string{
+//    [self unmarkText];
+//    [self setMarkedText:string selectedRange:NSMakeRange( 0, [string length]-1 )];
+//    [self scrollRangeToVisible:self.selectedRange];
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"[ hh:mm:ss ]  "];
+    NSString *timestr = [formatter stringFromDate:date];
+    NSString *speech = [timestr stringByAppendingString: string];
+    //speech = [@"\n" stringByAppendingString: speech];
+    speech = [self.attributedText.string stringByAppendingString:speech];
+    NSMutableAttributedString *temp = [[NSMutableAttributedString alloc] initWithString: speech];
+    
+    self.attributedText = temp;
+//
+//
+//    
+//    
+//    UITextRange * range = [self selectedTextRange];
+//    [self replaceRange:range withText:];
+//    [self scrollRangeToVisible:self.selectedRange];
+//    
+    }
 
 - (UIView *) writePadInputPanelPositionAltPopover:(CGRect *)pRect
 {

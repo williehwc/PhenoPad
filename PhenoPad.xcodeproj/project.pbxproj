@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4400D4931E8867C6007D7331 /* FloatPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400D4921E8867C6007D7331 /* FloatPanelView.m */; };
+		4400D4951E886B02007D7331 /* FloatPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4400D4941E886B02007D7331 /* FloatPanelView.xib */; };
+		4400D4991E887E02007D7331 /* ic_close_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4400D4961E887E02007D7331 /* ic_close_2x.png */; };
+		4400D49A1E887E02007D7331 /* ic_close_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4400D4971E887E02007D7331 /* ic_close_3x.png */; };
+		4400D49B1E887E02007D7331 /* ic_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 4400D4981E887E02007D7331 /* ic_close.png */; };
+		4400D49E1E88C1BE007D7331 /* EditNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400D49D1E88C1BE007D7331 /* EditNoteView.m */; };
+		4400D4A21E88C549007D7331 /* ic_format_color_text_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4400D49F1E88C549007D7331 /* ic_format_color_text_2x.png */; };
+		4400D4A31E88C549007D7331 /* ic_format_color_text_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4400D4A01E88C549007D7331 /* ic_format_color_text_3x.png */; };
+		4400D4A41E88C549007D7331 /* ic_format_color_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 4400D4A11E88C549007D7331 /* ic_format_color_text.png */; };
+		4400D4A71E88D55A007D7331 /* PhenoLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400D4A61E88D55A007D7331 /* PhenoLabelView.m */; };
+		4400D4A91E88D636007D7331 /* PhenoLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4400D4A81E88D636007D7331 /* PhenoLabelView.xib */; };
+		4400D4AB1E88E05F007D7331 /* ic_close_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 4400D4AA1E88E05F007D7331 /* ic_close_white.png */; };
+		4400D4AD1E891777007D7331 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4400D4AC1E891777007D7331 /* MyTableViewController.swift */; };
 		440513431E6CEBE400AE665E /* AppPageTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4405133F1E6CEBE400AE665E /* AppPageTabBarController.swift */; };
 		440513441E6CEBE400AE665E /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440513401E6CEBE400AE665E /* BlueViewController.swift */; };
 		440513451E6CEBE400AE665E /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440513411E6CEBE400AE665E /* GreenViewController.swift */; };
@@ -227,6 +240,7 @@
 		449A71901E84266900C59E8B /* hello_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 449A71861E84266900C59E8B /* hello_menu.png */; };
 		449A71911E84266900C59E8B /* map_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 449A71871E84266900C59E8B /* map_menu.png */; };
 		449A71921E84266900C59E8B /* settings_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 449A71881E84266900C59E8B /* settings_menu.png */; };
+		449BBBAD1E882C1B00445FB1 /* SpeechViewTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 449BBBAC1E882C1B00445FB1 /* SpeechViewTextView.m */; };
 		449C6EAB1E7FB371003FEA89 /* FMMarkingMenuSupportClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449C6EA81E7FB371003FEA89 /* FMMarkingMenuSupportClasses.swift */; };
 		449C6EAC1E7FB371003FEA89 /* FMMarkingMenuContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449C6EA91E7FB371003FEA89 /* FMMarkingMenuContentViewController.swift */; };
 		449C6EAD1E7FB371003FEA89 /* FMMarkingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449C6EAA1E7FB371003FEA89 /* FMMarkingMenu.swift */; };
@@ -243,6 +257,22 @@
 
 /* Begin PBXFileReference section */
 		3F9C7684584C5B386BBD7728 /* Pods-PhenoPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhenoPad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhenoPad/Pods-PhenoPad.debug.xcconfig"; sourceTree = "<group>"; };
+		4400D4891E885AD1007D7331 /* FloatPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FloatPanelView.h; path = NoteView/NoteTextView/FloatPanelView.h; sourceTree = "<group>"; };
+		4400D4921E8867C6007D7331 /* FloatPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloatPanelView.m; path = NoteView/NoteTextView/FloatPanelView.m; sourceTree = "<group>"; };
+		4400D4941E886B02007D7331 /* FloatPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatPanelView.xib; sourceTree = "<group>"; };
+		4400D4961E887E02007D7331 /* ic_close_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_close_2x.png; sourceTree = "<group>"; };
+		4400D4971E887E02007D7331 /* ic_close_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_close_3x.png; sourceTree = "<group>"; };
+		4400D4981E887E02007D7331 /* ic_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_close.png; sourceTree = "<group>"; };
+		4400D49C1E88C1BE007D7331 /* EditNoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditNoteView.h; path = NoteView/NoteTextView/EditNoteView.h; sourceTree = "<group>"; };
+		4400D49D1E88C1BE007D7331 /* EditNoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditNoteView.m; path = NoteView/NoteTextView/EditNoteView.m; sourceTree = "<group>"; };
+		4400D49F1E88C549007D7331 /* ic_format_color_text_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_format_color_text_2x.png; sourceTree = "<group>"; };
+		4400D4A01E88C549007D7331 /* ic_format_color_text_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_format_color_text_3x.png; sourceTree = "<group>"; };
+		4400D4A11E88C549007D7331 /* ic_format_color_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_format_color_text.png; sourceTree = "<group>"; };
+		4400D4A51E88D541007D7331 /* PhenoLabelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PhenoLabelView.h; path = NoteView/NoteTextView/PhenoLabelView.h; sourceTree = "<group>"; };
+		4400D4A61E88D55A007D7331 /* PhenoLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhenoLabelView.m; path = NoteView/NoteTextView/PhenoLabelView.m; sourceTree = "<group>"; };
+		4400D4A81E88D636007D7331 /* PhenoLabelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhenoLabelView.xib; path = NoteView/NoteTextView/PhenoLabelView.xib; sourceTree = "<group>"; };
+		4400D4AA1E88E05F007D7331 /* ic_close_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_close_white.png; path = icons/ic_close_white.png; sourceTree = "<group>"; };
+		4400D4AC1E891777007D7331 /* MyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
 		4405133F1E6CEBE400AE665E /* AppPageTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPageTabBarController.swift; sourceTree = "<group>"; };
 		440513401E6CEBE400AE665E /* BlueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
 		440513411E6CEBE400AE665E /* GreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
@@ -530,6 +560,8 @@
 		449A71861E84266900C59E8B /* hello_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hello_menu.png; sourceTree = "<group>"; };
 		449A71871E84266900C59E8B /* map_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_menu.png; sourceTree = "<group>"; };
 		449A71881E84266900C59E8B /* settings_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_menu.png; sourceTree = "<group>"; };
+		449BBBAB1E882BA100445FB1 /* SpeechViewTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeechViewTextView.h; sourceTree = "<group>"; };
+		449BBBAC1E882C1B00445FB1 /* SpeechViewTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechViewTextView.m; sourceTree = "<group>"; };
 		449C6EA81E7FB371003FEA89 /* FMMarkingMenuSupportClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMarkingMenuSupportClasses.swift; sourceTree = "<group>"; };
 		449C6EA91E7FB371003FEA89 /* FMMarkingMenuContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMarkingMenuContentViewController.swift; sourceTree = "<group>"; };
 		449C6EAA1E7FB371003FEA89 /* FMMarkingMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMarkingMenu.swift; sourceTree = "<group>"; };
@@ -828,6 +860,8 @@
 				440513411E6CEBE400AE665E /* GreenViewController.swift */,
 				440513421E6CEBE400AE665E /* RedViewController.swift */,
 				4467448E1E6D3F3F005FDBAF /* MyLabel.swift */,
+				449BBBAB1E882BA100445FB1 /* SpeechViewTextView.h */,
+				449BBBAC1E882C1B00445FB1 /* SpeechViewTextView.m */,
 			);
 			name = SpeechView;
 			path = PaintingBrushSettingsView;
@@ -1057,6 +1091,7 @@
 		449A717B1E84260500C59E8B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4400D4AA1E88E05F007D7331 /* ic_close_white.png */,
 				449A717C1E84266900C59E8B /* icons */,
 			);
 			name = images;
@@ -1065,6 +1100,12 @@
 		449A717C1E84266900C59E8B /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				4400D49F1E88C549007D7331 /* ic_format_color_text_2x.png */,
+				4400D4A01E88C549007D7331 /* ic_format_color_text_3x.png */,
+				4400D4A11E88C549007D7331 /* ic_format_color_text.png */,
+				4400D4961E887E02007D7331 /* ic_close_2x.png */,
+				4400D4971E887E02007D7331 /* ic_close_3x.png */,
+				4400D4981E887E02007D7331 /* ic_close.png */,
 				4427A9D51E86D269003AEF34 /* note_uparrow.png */,
 				4427A91C1E86AB69003AEF34 /* ic_videocam.png */,
 				4427A91D1E86AB69003AEF34 /* ic_videocam_white.png */,
@@ -1160,6 +1201,8 @@
 		44E27A781E86299500BE7C95 /* NoteTextView */ = {
 			isa = PBXGroup;
 			children = (
+				4400D49C1E88C1BE007D7331 /* EditNoteView.h */,
+				4400D49D1E88C1BE007D7331 /* EditNoteView.m */,
 				44E01C431E88040A003849C7 /* PhenotypePickerViewController.h */,
 				44E01C441E88040A003849C7 /* PhenotypePickerViewController.m */,
 				44E01C401E87FE2A003849C7 /* PhenotypeToolbar.m */,
@@ -1174,6 +1217,13 @@
 				4427A96C1E86BC61003AEF34 /* NotePopover.h */,
 				4427A96D1E86C881003AEF34 /* NoteCustomPopover.h */,
 				4427A96E1E86C895003AEF34 /* NoteCustomPopover.m */,
+				4400D4891E885AD1007D7331 /* FloatPanelView.h */,
+				4400D4921E8867C6007D7331 /* FloatPanelView.m */,
+				4400D4941E886B02007D7331 /* FloatPanelView.xib */,
+				4400D4A51E88D541007D7331 /* PhenoLabelView.h */,
+				4400D4A61E88D55A007D7331 /* PhenoLabelView.m */,
+				4400D4A81E88D636007D7331 /* PhenoLabelView.xib */,
+				4400D4AC1E891777007D7331 /* MyTableViewController.swift */,
 			);
 			name = NoteTextView;
 			sourceTree = "<group>";
@@ -1250,6 +1300,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4400D4991E887E02007D7331 /* ic_close_2x.png in Resources */,
+				4400D4951E886B02007D7331 /* FloatPanelView.xib in Resources */,
 				443D72521E856DF4008D8AF9 /* subjective_menu.png in Resources */,
 				443D72EB1E857073008D8AF9 /* italic@2x.png in Resources */,
 				443D72D81E857072008D8AF9 /* buttoncenterSelected.png in Resources */,
@@ -1271,6 +1323,7 @@
 				443D72FC1E857073008D8AF9 /* strikethrough@2x.png in Resources */,
 				449A718B1E84266900C59E8B /* hello_indicator.png in Resources */,
 				443D72581E856DFC008D8AF9 /* assessment_indicator.png in Resources */,
+				4400D49B1E887E02007D7331 /* ic_close.png in Resources */,
 				447CC0E81E6B298300579696 /* German.dct in Resources */,
 				443D72F51E857073008D8AF9 /* numlist.png in Resources */,
 				446C4B9D1E608439002D00E9 /* LaunchScreen.xib in Resources */,
@@ -1279,6 +1332,7 @@
 				443D72531E856DF4008D8AF9 /* assessment_menu.png in Resources */,
 				4427A95C1E86AB69003AEF34 /* ic_edit_3x.png in Resources */,
 				443D72DD1E857072008D8AF9 /* buttonSelected.png in Resources */,
+				4400D49A1E887E02007D7331 /* ic_close_3x.png in Resources */,
 				443D73191E857073008D8AF9 /* done@2x.png in Resources */,
 				4427A94C1E86AB69003AEF34 /* ic_photo_white_2x.png in Resources */,
 				4427A9541E86AB69003AEF34 /* ic_photo_2x.png in Resources */,
@@ -1291,6 +1345,7 @@
 				4427A95A1E86AB69003AEF34 /* ic_edit_white_3x.png in Resources */,
 				449A71921E84266900C59E8B /* settings_menu.png in Resources */,
 				443D72FD1E857073008D8AF9 /* underline.png in Resources */,
+				4400D4A21E88C549007D7331 /* ic_format_color_text_2x.png in Resources */,
 				4427A9D61E86D269003AEF34 /* note_uparrow.png in Resources */,
 				447CC0E41E6B298300579696 /* English.dct in Resources */,
 				4405134A1E6CED7700AE665E /* SpeechView.xib in Resources */,
@@ -1299,8 +1354,10 @@
 				443D72ED1E857073008D8AF9 /* justifycenter@2x.png in Resources */,
 				4427A94F1E86AB69003AEF34 /* ic_photo_camera_white_3x.png in Resources */,
 				4427A9691E86AB69003AEF34 /* ic_collections_2x.png in Resources */,
+				4400D4AB1E88E05F007D7331 /* ic_close_white.png in Resources */,
 				443D72511E856DF4008D8AF9 /* objective_menu.png in Resources */,
 				443D72F71E857073008D8AF9 /* outdent.png in Resources */,
+				4400D4A91E88D636007D7331 /* PhenoLabelView.xib in Resources */,
 				443D72501E856DF4008D8AF9 /* plan_menu.png in Resources */,
 				4427A9511E86AB69003AEF34 /* ic_photo_camera_3x.png in Resources */,
 				443D72F81E857073008D8AF9 /* outdent@2x.png in Resources */,
@@ -1360,6 +1417,7 @@
 				443D72E91E857073008D8AF9 /* indent@2x.png in Resources */,
 				443D72DE1E857072008D8AF9 /* dropDownTriangle.png in Resources */,
 				449A71891E84266900C59E8B /* about_indicator.png in Resources */,
+				4400D4A41E88C549007D7331 /* ic_format_color_text.png in Resources */,
 				4427A9621E86AB69003AEF34 /* ic_color_lens_3x.png in Resources */,
 				443D72F01E857073008D8AF9 /* justifyleft.png in Resources */,
 				443D72D11E857072008D8AF9 /* backcolor.png in Resources */,
@@ -1380,6 +1438,7 @@
 				4427A9491E86AB69003AEF34 /* ic_photo.png in Resources */,
 				443D72F61E857073008D8AF9 /* numlist@2x.png in Resources */,
 				4427A9671E86AB69003AEF34 /* ic_collections_white_2x.png in Resources */,
+				4400D4A31E88C549007D7331 /* ic_format_color_text_3x.png in Resources */,
 				447CC0EB1E6B298300579696 /* MedicalUS.dct in Resources */,
 				443D72E11E857072008D8AF9 /* colors.jpg in Resources */,
 				446C4B961E608405002D00E9 /* BackgroundSettingsVC.xib in Resources */,
@@ -1457,6 +1516,7 @@
 				443D731B1E857073008D8AF9 /* DropDownListView.m in Sources */,
 				447CC0BC1E6B295F00579696 /* RecognizerManager.m in Sources */,
 				443D732C1E857552008D8AF9 /* EditTextByDrawingView.m in Sources */,
+				4400D4A71E88D55A007D7331 /* PhenoLabelView.m in Sources */,
 				440513461E6CEBE400AE665E /* RedViewController.swift in Sources */,
 				4467448F1E6D3F3F005FDBAF /* MyLabel.swift in Sources */,
 				443D731E1E857073008D8AF9 /* RichTextEditorChangeStrokeViewController.m in Sources */,
@@ -1497,12 +1557,15 @@
 				447CC0BD1E6B295F00579696 /* RectObject.m in Sources */,
 				447CC0CC1E6B297500579696 /* EditWordItemViewController.swift in Sources */,
 				443D73321E857562008D8AF9 /* WPTextView.m in Sources */,
+				4400D4931E8867C6007D7331 /* FloatPanelView.m in Sources */,
+				449BBBAD1E882C1B00445FB1 /* SpeechViewTextView.m in Sources */,
 				447CC0BB1E6B295F00579696 /* NSMutableArray+AddUnique.m in Sources */,
 				446C4B871E6083CB002D00E9 /* DashLineBrush.swift in Sources */,
 				443D73211E857073008D8AF9 /* RichTextEditorFontPickerViewController.m in Sources */,
 				449C6EAC1E7FB371003FEA89 /* FMMarkingMenuContentViewController.swift in Sources */,
 				447CC0CD1E6B297500579696 /* LanguageViewController.swift in Sources */,
 				4427A9D31E86CBD2003AEF34 /* UIBarButtonItem+WEPopover.m in Sources */,
+				4400D49E1E88C1BE007D7331 /* EditNoteView.m in Sources */,
 				44E27A771E85F5F600BE7C95 /* NoteViewController.swift in Sources */,
 				447CC0B41E6B295F00579696 /* LetterGroupView.m in Sources */,
 				4427A9D21E86CBD2003AEF34 /* UIView+WEPopover.m in Sources */,
@@ -1510,6 +1573,7 @@
 				443D73011E857073008D8AF9 /* AttributeUndoRedoTextView.m in Sources */,
 				443D73031E857073008D8AF9 /* UIFont+RichTextEditor.m in Sources */,
 				4427A9721E86C938003AEF34 /* WEColorUtils.m in Sources */,
+				4400D4AD1E891777007D7331 /* MyTableViewController.swift in Sources */,
 				446C4B9F1E608439002D00E9 /* RGBColorPicker.swift in Sources */,
 				44F467F61E7A1D5F00FFDD6A /* UIBezierPathExtension.swift in Sources */,
 				443D73271E857073008D8AF9 /* RichTextEditorToggleButton.m in Sources */,

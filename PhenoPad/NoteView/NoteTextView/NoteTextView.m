@@ -149,7 +149,7 @@
 {
     self.fontSize = 22.0f;
     self.lineWidth = 1.0f;
-    self.lineSpace = 40.0f;
+    self.lineSpace = 10.0f;
     NoteTextView * textView = self;
     inputSystem = InputSystem_Default;
     
@@ -207,9 +207,7 @@
     //self.editable = NO;
     
     self.paragraphs = [[NSMutableArray alloc] init];
-    [self.paragraphs addObject:@"This is the first paragrah, hahahahahhhahahahahhahahahahhahahahahahhahahahahahahahahahahajfoaisdjfoaishfiohweofihaisduhflasdjflkajsdfhahahahahhahahahahhahahahahahhahahahahahahahahahahajfoaisdjfoaishfiohweofihaisduhflasdjflkajsdf"];
-    [self.paragraphs addObject:@"This is the second paragrah, hahahahahhhahahahahhahahahhhahahahahahahahahahahajfoaisdjfoaishfiohweofihaisduhflasdjflkajsdf"];
-    [self.paragraphs addObject:@"This is the Third paragrah, ahahahahahahahaasdjflkajsdf"];
+    [self.paragraphs addObject:@"Subjective"];
     [self showParagraphs];
 }
 
@@ -232,9 +230,9 @@
 {
     if ((self = [super initWithFrame:frame])) 
 	{
-        self.fontSize = 25.0f;
-        self.lineWidth = 3.0f;
-        self.lineSpace = 60.0f;
+        self.fontSize = 18.0f;
+        self.lineWidth = 2.0f;
+        self.lineSpace = 25.0f;
 		inputSystem = InputSystem_Default;
         
         // create full screen ink collector
@@ -294,7 +292,6 @@
         [self.paragraphs addObject:@"This is the second paragrah, hahahahahhhahahahahhahahahhhahahahahahahahahahahajfoaisdjfoaishfiohweofihaisduhflasdjflkajsdf"];
         [self.paragraphs addObject:@"This is the Third paragrah, ahahahahahahahaasdjflkajsdf"];
         [self showParagraphs];
-        
     }
     return self;
 }
@@ -902,11 +899,19 @@
     [popover presentPopoverFromRect:fromRect inView:inView permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
+-(void) popupRect:(CGRect) rt{
+    self.insertPosi = rt;
+    [self showPopMenu:rt inView:self];
+}
+
 -(void) openStyle
 {
-    UITextRange * selectionRange = [self selectedTextRange];
-    CGRect end = [self caretRectForPosition:selectionRange.end];
-    CGRect rt = CGRectMake( end.origin.x, end.origin.y+end.size.height, 0, 0);
+    CGPoint start = self.inkCollector.ptStroke[0].pt;
+    CGPoint end = self.inkCollector.ptStroke[self.inkCollector.strokeLen-1].pt;
+//    UITextRange * selectionRange = [self selectedTextRange];
+//    CGRect end = [self caretRectForPosition:selectionRange.end];
+    CGRect rt = CGRectMake( (start.x+end.x)/2, (start.y+end.y)/2, 0, 0);
+    self.insertPosi = rt;
     [self showPopMenu:rt inView:self];
 }
 
@@ -916,6 +921,13 @@
     switch (btn) {
         case keyboard:
             [self setInputMethod: InputSystem_Keyboard];
+             [self.noteDelegate selectKeyboard];
+            break;
+        case paint:
+            [self.noteDelegate selectPaint];
+            break;
+        case edit:
+            [self.noteDelegate selectEdit];
             break;
         case camera:
         case photo:
@@ -926,6 +938,7 @@
             break;
         case stylus:
             [self setInputMethod: InputSystem_WriteAnywhere];
+            [self.noteDelegate selectStylus];
             break;
         default:
             break;
@@ -1195,6 +1208,70 @@
         NSLog(@"Paragraph [ %d ] ends at line [ %d ]", p, [self lineByPosition: endPosition.origin]-1);
         
     }
+}
+
+- (void) initSubjective
+{
+    self.paragraphs = [[NSMutableArray alloc] init];
+    [self.paragraphs addObject:@"Subjective\n"];
+    [self.paragraphs addObject:@"Name: Mr. ABC"];
+    [self.paragraphs addObject:@"Date of Birth: 12/12/1912\n"];
+    [self.paragraphs addObject:@"CHIEF COMPLAINT:"];
+    [self.paragraphs addObject:@"Headache, nausea, vomiting, and diarhea.\n"];
+    [self.paragraphs addObject:@"HISTORY OF PRESENT ILLNESS:"];
+    [self.paragraphs addObject:@"This 62 yo female with a PMH notable for TTP in 1996 who presents with intermittent dizziness, nausea, vomiting, and diarrhea of about 1 week duration. Over this period of time, she has been unable to take in any significant PO intake without vomiting. Her dizziness and lightheadedness are most notable when she stands up, and she has difficulty maintaining her balance due to this. She also notes that has been very tired for this past week, spending approximately 20 hours per day in bed sleeping. She denies pain, headache, fevers, chills, SOB, chest pain, hematemesis, bloody stool, tarry stool, dysuria, hematuria, and increased bleeding or bruising. The patient is unable to provide further details or further describe her symptoms, and has no idea what might be causing them.  She does deny any recent sick contacts, eating any new or abnormal foods, eating any potentially raw meats, and drinking large amounts of tonic water, or anything else that contains quinine.\n"];
+    [self.paragraphs addObject:@"FAMILY HISTORY:"];
+    [self.paragraphs addObject:@"Both of her parents are dead, but she does not remember how old they were when they died. Her father had COPD and coronary artery disease. Mother had diabetes and stoke.  One of her siblings has congenital deftness. Another sibling has adult onset diabetes.\n"];
+    
+    
+    
+    [self showParagraphs];
+}
+
+-(void)initObjective
+{
+    self.paragraphs = [[NSMutableArray alloc] init];
+    [self.paragraphs addObject:@"Objective\n"];
+    [self.paragraphs addObject:@"PHYSICAL EXAMINATION:"];
+    [self.paragraphs addObject:@"Vital Signs – temp 36.5°C, BP 159/76, pulse 58, RR 18, 98% on RA, weight 105 kg, height 166 cm, BMI 38."];
+    [self.paragraphs addObject:@"General – Pleasant, obese 62 year old female currently in no apparent distress."];
+    [self.paragraphs addObject:@"Lymph nodes – No periauricular, cervical, supraclavicular, axillary lymphadenectomy."];
+    [self.paragraphs addObject:@"Neck – Neck supple. Trachea midline. Thyroid gland normal and nontender. No carotid bruits. Difficult to assess for JVD secondary to body habitus."];
+    [self.paragraphs addObject:@"Heart – Normal S1 and S2. Regular rate and rhythm with no rubs, murmurs, or gallops. PMI normal.\n"];
+    [self.paragraphs addObject:@"LABORATORY DATA:"];
+    [self.paragraphs addObject:@"Peripheral Blood Smear: 5% of RBCs are shistocytes (28 per high power field). One target-cell seen. Large platelets and clumping of platelets."];
+    [self.paragraphs addObject:@"Urine Electrolytes: "];
+    [self.paragraphs addObject:@"94 sodium, 16 potassium, 88 chloride, 50 creatinine. FENA is 18%"];
+    
+    
+    [self showParagraphs];
+}
+-(void)initAssessment
+{
+    self.paragraphs = [[NSMutableArray alloc] init];
+    [self.paragraphs addObject:@"Assessment\n"];
+    [self.paragraphs addObject:@"Diagnostic Pentad:"];
+    [self.paragraphs addObject:@"Microangiopathic hemolytic anemia-This patient has a hemolytic anemia with a significant shistocytosis. The average shishtocytosis in TTP is 8.45% (with a range of 1% to 18%); her shistocytosis was 5%. Her elevated LDH is also confirmatory of her shistocytosis. On her admission for TTP in 1996, her renal biopsy showed a thrombotic microangioma. Repeating renal biopsy would cause unnecessary morbidity in this case since the diagnosis is already quite certain."];
+    
+    [self.paragraphs addObject:@"Thrombocyopenia, often with purpura-This patient does have a significant thrombocytopenia, with a platelet count of 66. In addition large platelets and clumping of platelets were noted on the peripheral blood smear, but of which are indicative of TTP. Some purpura were noted on physical exam, but they were not particularly prominent."];
+    
+    [self.paragraphs addObject:@"Fever-The patient has been afebrile by history and has not had a fever in her first several hours in the hospital.\n"];
+    
+    [self.paragraphs addObject:@"Differential Diagnosis:"];
+    
+    [self.paragraphs addObject:@"The main other diagnosis to consider in this clinical picture is diffuse intravascular coagulation (DIC). This diagnosis has been ruled out with a DIC screen that showed slightly elevated fibrinogen levels and undetectable levels of fragmented D-dimer. The presence of normal (or slightly above normal in this case) shows that fibrinogen is not being consumed by DIC, and the absence of D-dimer also shows that the coagulation pathway is not actively taking place in this patient."];
+    
+    [self showParagraphs];
+
+}
+-(void)initPlan
+{
+    self.paragraphs = [[NSMutableArray alloc] init];
+    [self.paragraphs addObject:@"Plan\n"];
+    [self.paragraphs addObject:@"(1) Treatment for TTP is plasmapheresis and administration of fresh frozen plasma (FFP). One randomized trial has shown this therapy to increase survival from 50% to 78% in patients with TTP (N Engl J Med 1991 Aug 8;325(6):393-7). A vascath has been placed in the patient’s femoral vein, and she will receive plasmapheresis once a day, along with daily administration of FFP\n"];
+    [self.paragraphs addObject:@"(2) This patient has acute renal failure, with a BUN of 119 and a creatinine of 13.6, on top of her preexisting chronic renal insufficiency (baseline creatinine is 1.7). The cause of this renal failure is TTP, so it will be treated by treating the underlying TTP, as described above. In addition, the patient’s Lasix, Atenolol, and Norvasc are being held.  These drug are being held both because they can impair renal function during episodes of acute renal failure, and because, in the setting of the large volume shifts associated with plasmaphoresis, they may complicate the clinical picture and make assessment of the patient’s fluid status more difficult. Norvasc will be restarted if the patient becomes significantly hypertensive, and lasix can be administered if she develops pulmonary edema."];
+    [self.paragraphs addObject:@"(3) The patient’s diarrhea appears to be fairly mild, and it is not among her most significant complaints. It does not appear to be causing excessive volume loss or any electrolyte abnormalities. As described above, fecal samples have been sent for fecal leukocytes, culture, fecal parasite screen, and C. dificil toxin. If a treatable cause of her diarrhea is found, it will be treated appropriately."];
+    [self showParagraphs];
 }
 
 

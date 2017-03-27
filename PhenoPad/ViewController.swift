@@ -480,8 +480,9 @@ public class ViewController:  UIViewController, UITextViewDelegate, CariocaMenuD
             if let obj = self.storyboard?.instantiateViewController(withIdentifier: "objectiveCtrl") {
                 self.addChildViewController(obj)
                 self.view.addSubview(obj.view)
-                self.objective = obj as! NoteViewController
+                self.objective = obj as? NoteViewController
                 curContentController = obj as! NoteViewController
+                self.objective?.HPIWritingPad.initObjective()
             }
             break
         case 2:
@@ -494,8 +495,9 @@ public class ViewController:  UIViewController, UITextViewDelegate, CariocaMenuD
             if let assess = self.storyboard?.instantiateViewController(withIdentifier: "assessmentCtrl"){
                 self.addChildViewController(assess)
                 self.view.addSubview(assess.view)
-                assessment = assess as! NoteViewController
+                self.assessment = assess as? NoteViewController
                 curContentController = assess as! NoteViewController
+                self.assessment?.HPIWritingPad.initAssessment()
             }
             break
         case 3:
@@ -508,8 +510,9 @@ public class ViewController:  UIViewController, UITextViewDelegate, CariocaMenuD
             if let plan = self.storyboard?.instantiateViewController(withIdentifier: "planCtrl") {
                 self.addChildViewController(plan)
                 self.view.addSubview(plan.view)
-                self.plan = plan as! NoteViewController
+                self.plan = plan as? NoteViewController
                 curContentController = plan as! NoteViewController
+                self.plan?.HPIWritingPad.initPlan()
             }
             break
         default:
@@ -520,10 +523,12 @@ public class ViewController:  UIViewController, UITextViewDelegate, CariocaMenuD
                 break
             }
             if let sub = self.storyboard?.instantiateViewController(withIdentifier: "subjectiveCtrl") {
+                
                 self.addChildViewController(sub)
                 self.view.addSubview(sub.view)
                 self.subjective = sub as! NoteViewController
                 curContentController = sub as! NoteViewController
+                self.subjective?.HPIWritingPad.initSubjective();
             }
             break
         }

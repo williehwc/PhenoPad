@@ -39,6 +39,8 @@ typedef enum {
 ////////////////jixuan
 - (void) initTextViewWithoutFrame;
 - (void) appendAttributedString:(NSString*) s;
+- (void) setStyle:(CGFloat) fontSize lineWidth:(CGFloat)linewidth lineSpace:(CGFloat)linespace;
+- (void) addSpeech:(NSString*) string;
 
 @property (nonatomic, strong) UIColor *horizontalLineColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIColor *verticalLineColor UI_APPEARANCE_SELECTOR;

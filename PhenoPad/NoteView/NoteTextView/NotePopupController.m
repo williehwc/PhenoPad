@@ -15,6 +15,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *cameraBtn;
 @property (weak, nonatomic) IBOutlet UIButton *photoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *videoBtn;
+@property (weak, nonatomic) IBOutlet UIButton *editBtn;
+@property (weak, nonatomic) IBOutlet UIButton *paintBtn;
+
+
+
 @end
 
 @implementation NotePopupController
@@ -26,6 +31,8 @@
     [self.cameraBtn setBackgroundImage:[self imageWithColor:highcolor] forState:UIControlStateHighlighted];
     [self.photoBtn setBackgroundImage:[self imageWithColor:highcolor] forState:UIControlStateHighlighted];
     [self.videoBtn setBackgroundImage:[self imageWithColor:highcolor] forState:UIControlStateHighlighted];
+    [self.paintBtn setBackgroundImage:[self imageWithColor:highcolor] forState:UIControlStateHighlighted];
+    [self.editBtn setBackgroundImage:[self imageWithColor:highcolor] forState:UIControlStateHighlighted];
     
 }
 - (void)didReceiveMemoryWarning {
@@ -48,6 +55,14 @@
 - (IBAction)videoClick:(UIButton *)sender {
     [self.delegate NotePopupControllerDidSelect: video];
 }
+
+- (IBAction)paintClick:(UIButton *)sender {
+     [self.delegate NotePopupControllerDidSelect: paint];
+}
+- (IBAction)editClick:(id)sender {
+    [self.delegate NotePopupControllerDidSelect: edit];
+}
+
 
 - (UIImage *)imageWithColor:(UIColor *)color {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);

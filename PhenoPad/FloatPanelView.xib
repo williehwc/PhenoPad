@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FloatPanelView">
+            <connections>
+                <outlet property="dragBar" destination="2R0-m3-Pwa" id="D9T-Ps-0re"/>
+                <outlet property="mainView" destination="NrY-aH-jTW" id="noV-ln-8kg"/>
+                <outlet property="view" destination="iN0-l3-epB" id="4EZ-J2-wGw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="308" height="304"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrY-aH-jTW">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jr9-Ys-Okk">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2R0-m3-Pwa">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="15"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZS-nQ-jDf">
+                                            <rect key="frame" x="3" y="-2" width="18" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="ic_close.png"/>
+                                            <connections>
+                                                <action selector="closeClicked:" destination="-1" eventType="touchUpInside" id="OO2-47-X46"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="yit-ge-4aM"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkq-Kr-pN8">
+                                    <rect key="frame" x="0.0" y="15" width="300" height="285"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="2R0-m3-Pwa" firstAttribute="leading" secondItem="jr9-Ys-Okk" secondAttribute="leading" id="0si-Ts-cNZ"/>
+                                <constraint firstAttribute="trailing" secondItem="2R0-m3-Pwa" secondAttribute="trailing" id="dVw-pw-cin"/>
+                                <constraint firstItem="2R0-m3-Pwa" firstAttribute="top" secondItem="jr9-Ys-Okk" secondAttribute="top" id="e66-s2-V7t"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="jr9-Ys-Okk" firstAttribute="top" secondItem="NrY-aH-jTW" secondAttribute="top" id="Fnb-0d-j8I"/>
+                        <constraint firstAttribute="bottom" secondItem="jr9-Ys-Okk" secondAttribute="bottom" id="IjJ-Vy-T6Z"/>
+                        <constraint firstItem="jr9-Ys-Okk" firstAttribute="leading" secondItem="NrY-aH-jTW" secondAttribute="leading" id="RGk-J3-cLC"/>
+                        <constraint firstAttribute="height" constant="300" id="WHP-Ab-Jwp"/>
+                        <constraint firstAttribute="trailing" secondItem="jr9-Ys-Okk" secondAttribute="trailing" id="WJ2-Bj-v2r"/>
+                        <constraint firstAttribute="width" constant="300" id="ciQ-gO-hdc"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="4" height="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="NrY-aH-jTW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Xzt-Ht-zk1"/>
+                <constraint firstItem="NrY-aH-jTW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="iD9-Je-XTT"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-8" y="281"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_close.png" width="24" height="24"/>
+    </resources>
+</document>

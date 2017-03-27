@@ -11,11 +11,16 @@
 #import "NotePopupController.h"
 #import "NotePopover.h"
 #import "NoteCustomPopover.h"
+#import "FloatPanelView.h"
 
 @protocol NoteTextViewDelegate<NSObject>
 @optional
 
 - (void) selectCameraOrPhoto;
+- (void) selectPaint;
+- (void) selectEdit;
+- (void) selectKeyboard;
+- (void) selectStylus;
 
 @end
 
@@ -41,7 +46,15 @@
 - (void) initTextViewWithoutFrame;
 - (void) appendAttributedString:(NSString*) s;
 - (void) showPopMenu:(CGRect) fromRect inView:(UIView*)inView;
+- (void) openStyle;
+- (void) popupRect:(CGRect) rt;
 - (void) showParagraphs;
+
+-(void)initSubjective;
+-(void)initObjective;
+-(void)initAssessment;
+-(void)initPlan;
+
 
 @property (nonatomic, strong) UIColor *horizontalLineColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIColor *verticalLineColor UI_APPEARANCE_SELECTOR;
@@ -56,7 +69,8 @@
 @property (nonatomic, weak) id <NoteTextViewDelegate> noteDelegate;
 @property (nonatomic, strong) id <NotePopover> popover;
 @property (nonatomic, retain) NSMutableArray* paragraphs;
-
+@property (nonatomic, retain) FloatPanelView* floatPanel;
+@property(nonatomic) CGRect insertPosi;
 @end
 
 

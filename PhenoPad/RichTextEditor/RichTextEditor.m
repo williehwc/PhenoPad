@@ -4,8 +4,8 @@
 #import "UIFont+RichTextEditor.h"
 #import "NSAttributedString+RichTextEditor.h"
 #import "UIView+RichTextEditor.h"
-
-#define RICHTEXTEDITOR_TOOLBAR_HEIGHT 40
+// jixuan
+#define RICHTEXTEDITOR_TOOLBAR_HEIGHT 0
 
 @interface RichTextEditor() <RichTextEditorToolbarDelegate, RichTextEditorToolbarDataSource>{
     NSMutableArray *historyArray;

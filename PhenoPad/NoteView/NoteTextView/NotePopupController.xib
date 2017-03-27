@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotePopupController">
             <connections>
                 <outlet property="cameraBtn" destination="Y1X-Ea-mXG" id="zPY-yc-ZOl"/>
+                <outlet property="editBtn" destination="kzw-qZ-TOY" id="S4B-yv-A7g"/>
                 <outlet property="keyboardBtn" destination="Lg4-kq-Jjc" id="Uq8-59-s70"/>
+                <outlet property="paintBtn" destination="aqC-9M-2jD" id="v2g-kc-957"/>
                 <outlet property="photoBtn" destination="CCM-ZS-Reh" id="8iE-As-UDs"/>
                 <outlet property="stylusBtn" destination="mUV-sf-FF0" id="1Eu-IF-MCa"/>
                 <outlet property="videoBtn" destination="pjJ-kk-4Wk" id="f3X-hh-8Cs"/>
@@ -30,8 +32,29 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8Ru-w7-rPa">
                             <rect key="frame" x="0.0" y="0.0" width="180" height="20"/>
                             <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzw-qZ-TOY" userLabel="Edit Btn">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="20"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <accessibility key="accessibilityConfiguration">
+                                        <accessibilityTraits key="traits" none="YES"/>
+                                    </accessibility>
+                                    <color key="tintColor" red="0.66040540069999998" green="0.88523833559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="ic_format_color_text.png"/>
+                                    <state key="focused" image="ic_keyboard_white.png"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="-2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="editClick:" destination="-1" eventType="touchUpInside" id="X9g-7y-ggd"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lg4-kq-Jjc">
-                                    <rect key="frame" x="0.0" y="0.0" width="90" height="20"/>
+                                    <rect key="frame" x="60" y="0.0" width="60" height="20"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <accessibility key="accessibilityConfiguration">
                                         <accessibilityTraits key="traits" none="YES"/>
@@ -52,7 +75,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUV-sf-FF0">
-                                    <rect key="frame" x="90" y="0.0" width="90" height="20"/>
+                                    <rect key="frame" x="120" y="0.0" width="60" height="20"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <state key="normal" image="ic_edit.png"/>
                                     <connections>
@@ -92,8 +115,16 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x1c-X4-zq7">
                             <rect key="frame" x="181" y="0.0" width="319" height="20"/>
                             <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqC-9M-2jD">
+                                    <rect key="frame" x="0.0" y="0.0" width="79.666666666666686" height="20"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <state key="normal" image="ic_color_lens.png"/>
+                                    <connections>
+                                        <action selector="paintClick:" destination="-1" eventType="touchUpInside" id="Kzf-jI-6im"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1X-Ea-mXG">
-                                    <rect key="frame" x="0.0" y="0.0" width="106.33333333333331" height="20"/>
+                                    <rect key="frame" x="79.666666666666686" y="0.0" width="80" height="20"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <state key="normal" image="ic_photo_camera.png"/>
                                     <connections>
@@ -101,7 +132,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCM-ZS-Reh">
-                                    <rect key="frame" x="106.33333333333331" y="0.0" width="106.33333333333337" height="20"/>
+                                    <rect key="frame" x="159.66666666666669" y="0.0" width="79.666666666666629" height="20"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <state key="normal" image="ic_photo.png"/>
                                     <connections>
@@ -109,7 +140,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjJ-kk-4Wk">
-                                    <rect key="frame" x="212.66666666666671" y="0.0" width="106.33333333333329" height="20"/>
+                                    <rect key="frame" x="239.33333333333329" y="0.0" width="79.666666666666714" height="20"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <state key="normal" image="ic_videocam.png"/>
                                     <connections>
@@ -167,7 +198,9 @@
         </viewController>
     </objects>
     <resources>
+        <image name="ic_color_lens.png" width="24" height="24"/>
         <image name="ic_edit.png" width="24" height="24"/>
+        <image name="ic_format_color_text.png" width="24" height="24"/>
         <image name="ic_keyboard.png" width="24" height="24"/>
         <image name="ic_keyboard_white.png" width="24" height="24"/>
         <image name="ic_photo.png" width="24" height="24"/>
